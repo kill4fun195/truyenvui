@@ -1,0 +1,49 @@
+#frontends-index{style: "margin-top:20px"}
+  %h3 Truyện cười mới nhất
+  - 5.times do
+    .panel.panel-default
+      .panel-body 
+        %div.truyenvui-title
+          %h3
+            %a Bí kíp võ công
+          %div.truyenvui-info
+            %span
+              Tue, 12/11/2012 - 16:09 —
+            %span
+              %i.fa.fa-user
+              VanDao 
+        %div.truyenvui-description  
+          %p Có 1 anh chàng một hôm đang đi nhặt lá đá ống bơ thì nhặt được 1 quyển bí kíp.
+
+          %p Nghi là võ học thượng thừa nên anh ta giấu mang về nhà đọc.
+
+          %p Trang 1 : Miêu tả về võ công. Có thể hô mưa gọi gió. Độc bộ thiên hạ. Đưa người ta lên đỉnh cao của võ học.
+
+          %p Trang 2 : Cần phải tự cung mới có thể luyện …
+
+          %p Sau một hồi đắn đo suy nghĩ. Anh ta hạ quyết tâm vung đao tự cung.    
+  .paging
+    %p.paging-head
+      %i.fa.fa-file-text-o
+      Page
+      1
+      of
+      %span 34
+    %ul.pagination.pagination
+      %li.prev.disabled
+        %span ← Previous
+      %li.active
+        %span 1
+      %li
+        %a{:href => "/?page=2", :rel => "next"} 2
+      %li
+        %a{:href => "/?page=3"} 3
+      %li.disabled
+        %span …
+      %li
+        %a{:href => "/?page=33"} 33
+      %li
+        %a{:href => "/?page=34"} 34
+      %li.next
+        %a{:href => "/?page=2", :rel => "next"} Next →
+                  
