@@ -1,27 +1,43 @@
 #frontends-index{style: "margin-top:20px"}
   %h3 Truyện cười mới nhất
   - 5.times do
-    .panel.panel-default
-      .panel-body 
-        %div.truyenvui-title
-          %h3
-            %a Bí kíp võ công
-          %div.truyenvui-info
-            %span
-              Tue, 12/11/2012 - 16:09 —
-            %span
-              %i.fa.fa-user
-              VanDao 
-        %div.truyenvui-description  
-          %p Có 1 anh chàng một hôm đang đi nhặt lá đá ống bơ thì nhặt được 1 quyển bí kíp.
+    .row.truyenvui-content
+      .col-sm-7
+        .panel.panel-default
+          .panel-body  
+            %div.truyenvui-description  
+              %p Có 1 anh chàng một hôm đang đi nhặt lá đá ống bơ thì nhặt được 1 quyển bí kíp.
 
-          %p Nghi là võ học thượng thừa nên anh ta giấu mang về nhà đọc.
+              %p Nghi là võ học thượng thừa nên anh ta giấu mang về nhà đọc.
 
-          %p Trang 1 : Miêu tả về võ công. Có thể hô mưa gọi gió. Độc bộ thiên hạ. Đưa người ta lên đỉnh cao của võ học.
+              %p Trang 1 : Miêu tả về võ công. Có thể hô mưa gọi gió. Độc bộ thiên hạ. Đưa người ta lên đỉnh cao của võ học.
 
-          %p Trang 2 : Cần phải tự cung mới có thể luyện …
+              %p Trang 2 : Cần phải tự cung mới có thể luyện …
 
-          %p Sau một hồi đắn đo suy nghĩ. Anh ta hạ quyết tâm vung đao tự cung.    
+              %p Sau một hồi đắn đo suy nghĩ. Anh ta hạ quyết tâm vung đao tự cung.  
+      .col-sm-5
+        .sticky_column
+          .truyenvui-title
+            %h4{style: "font-weight:bold"} Tội nghiệp thằng ăn trộm 
+          .info
+            .div{style: "font-size: 12px; margin-bottom: 5px; margin-top: -8px;"}
+              Đăng bởi 
+              %a Khang 
+              19 phút trước 
+                
+            %p
+              %span{style: "padding-right: 10px;"}
+                %i.fa.fa-eye{"aria-hidden" => "true"}
+                1000
+              %span
+                %i.fa.fa-comments{"aria-hidden" => "true"}
+                10  
+          .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}  
+    .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}           
+
+              
+              
+
   .paging
     %p.paging-head
       %i.fa.fa-file-text-o

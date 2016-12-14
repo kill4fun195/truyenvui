@@ -7,4 +7,54 @@
 body
 {
   font-family: Helvetica,Arial,sans-serif;
+  line-height:1.38;
+  font-size:14px;
+}
+.container-fluid .panel-body a
+{
+  color: #365899;
+  cursor: pointer;
+}
+.sidenav .panel-body h4
+{
+  margin-top: 0;
+  padding: 0;
+  font-weight:bold;
+  color:#494949;
+}
+#myModal-login .login-with-oauth img
+{
+  width: 60%;
+}
+.sidenav .image-user img
+{
+  width:100%;
+}
+.sidenav .user-info
+{
+  font-weight: bold;
+  line-height: 0.5;
+  margin-left: -10px;
+  margin-top: 5px;
+}
+.sidenav .well .wrapper-info
+{
+  cursor:pointer;
+  color:#365899;
+  transition: color ease-out 0.3s;
+}
+.sidenav .well .wrapper-info:hover
+{
+  color:#ba0068;
+}
+.sidenav .well .nav-tabs li
+{
+  width: 33.3%;
+  text-align:center;
+  font-size:15px;
+  font-weight:bold;
+}
+.sidenav .well .clear-fix
+{
+  padding: 5px;
 }

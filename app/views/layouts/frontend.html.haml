@@ -8,6 +8,7 @@
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
     %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
     %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{href: "https://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet"}/
 
 
 
@@ -25,7 +26,6 @@
       .sidenav {
         padding-top: 20px;
         background-color: #f1f1f1;
-        height: 100%;
       }
       
       /* Set black background color, white text and some padding */
@@ -43,7 +43,6 @@
         }
         .row.content {height:auto;} 
       }
-
   %body
     %nav.navbar.navbar-inverse
       .container-fluid
@@ -56,35 +55,252 @@
         #myNavbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "#"} Home
+              %a{:href => "#"} Mới
             %li
-              %a{:href => "#"} About
+              %a{:href => "#"} Hot
+            %li.dropdown.dang-bai
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+                Đăng bài
+                %span.caret
+              %ul.dropdown-menu{style: "background: #f1f1f1; "}
+                %li
+                  %a{:href => "#myModal-dang-anh", "data-toggle" => "modal"} Đăng ảnh
+                %li
+                  %a{:href => "#myModal-dang-truyen", "data-toggle" => "modal"} Đăng Truyện    
+            %li.dropdown.category-truyen
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.fa.fa-list{"aria-hidden" => "true"}
+                Thể loại truyện 
+                %span.caret
+              %ul.dropdown-menu{style: "background: #f1f1f1; "}
+                %li
+                  %a aaaaaa
+                %li
+                  %a bbbbbb
             %li
-              %a{:href => "#"} Projects
-            %li
-              %a{:href => "#"} Contact
+              %a{:href => "#"} Truyện Cuoi       
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => "#"}
+              %a{:href => "#myModal-signup", "data-toggle" => "modal"}
+                %span.glyphicon.glyphicon-user
+                Sign Up 
+            %li
+              %a{:href => "#myModal-login", "data-toggle" => "modal"}
                 %span.glyphicon.glyphicon-log-in
-                Login
-    .container-fluid.text-center{style: "background:#e9ebee;"}
+                Login   
+    .container-fluid.text-center
       .row.content
-        .col-sm-4.sidenav
-          %p
-            %a{:href => "#"} Link
-          %p
-            %a{:href => "#"} Link
-          %p
-            %a{:href => "#"} Link
-        .col-sm-4.text-left
+        .col-sm-1.sidenav{style: "text-align:left"}
+        .col-sm-8.text-left
           = yield
-        .col-sm-4.sidenav
-          .well
-            %p ADS
-          .well
-            %p ADS
+        .col-sm-3.sidenav
+          .div{style: "padding:10px 0px;"}
+            %button.btn.btn-primary{:type => "button", style: "font-size: 12px; font-weight: bold; width: 100%;"}  Click để bắt đầu chia sẻ những bức ảnh vui!
+          .well{style: "background: white; text-align:left;margin-top:10px;padding-bottom:0px;padding-top:0px;"}
+            .row{style: "font-size:12px;"}
+              %h3{style: "text-align:center;"} Top danh hài
+              %ul.nav.nav-tabs{style: "margin-bottom:10px;"}
+                %li.active
+                  %a{"data-toggle" => "tab", :href => "#home"} Tuan
+                %li
+                  %a{"data-toggle" => "tab", :href => "#menu1"} Thang
+                %li
+                  %a{"data-toggle" => "tab", :href => "#menu2"} Tatca
+            .tab-content      
+              #home.tab-pane.fade.in.active
+                %a.wrapper-info      
+                  .row
+                    .col-xs-3
+                      .image-user
+                        = image_tag("/assets/admin.jpg")
+                    .col-xs-9
+                      .user-info
+                        %p Nguyen Van Dao
+                        %p 
+                          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                          %span 123
+                .clear-fix
+                %a.wrapper-info          
+                  .row
+                    .col-xs-3
+                      .image-user
+                        = image_tag("/assets/admin.jpg")
+                    .col-xs-9
+                      .user-info
+                        %p Nguyen Van Dao
+                        %p 
+                          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                          %span 123
+                .clear-fix   
+                %a.wrapper-info       
+                  .row
+                    .col-xs-3
+                      .image-user
+                        = image_tag("/assets/admin.jpg")
+                    .col-xs-9
+                      .user-info
+                        %p Nguyen Van Dao
+                        %p 
+                          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                          %span 123
+                .clear-fix
+                %a.wrapper-info          
+                  .row
+                    .col-xs-3
+                      .image-user
+                        = image_tag("/assets/admin.jpg")
+                    .col-xs-9
+                      .user-info
+                        %p Nguyen Van Dao
+                        %p 
+                          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                          %span 123
+                .clear-fix 
+                %a.wrapper-info         
+                  .row
+                    .col-xs-3
+                      .image-user
+                        = image_tag("/assets/admin.jpg")
+                    .col-xs-9
+                      .user-info
+                        %p Nguyen Van Dao
+                        %p 
+                          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                          %span 123   
+                .clear-fix 
+              #menu1.tab-pane.fade
+                %a.wrapper-info      
+                  .row
+                    .col-xs-3
+                      .image-user
+                        = image_tag("/assets/admin.jpg")
+                    .col-xs-9
+                      .user-info
+                        %p Nguyen Van BBB
+                        %p 
+                          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                          %span 123  
+              #menu2.tab-pane.fade
+                %a.wrapper-info      
+                  .row
+                    .col-xs-3
+                      .image-user
+                        = image_tag("/assets/admin.jpg")
+                    .col-xs-9
+                      .user-info
+                        %p Nguyen Van CCC
+                        %p 
+                          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                          %span 123              
+            .div
+              %p{style: "text-align:right"} 
+                %a xem thêm »                             
+          .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "false", "data-href" => "https://www.facebook.com/facebook", "data-show-facepile" => "true", "data-small-header" => "false", "data-tabs" => "timeline"}
+            %blockquote.fb-xfbml-parse-ignore{:cite => "https://www.facebook.com/facebook"}
+              %a{:href => "https://www.facebook.com/facebook"} Facebook
+
+          .well{style: "background: white; text-align:left;margin-top:10px;"}
+            %h4{style: "margin-top:-10px; font-weight:bold"} Có thể bạn sẽ thích 
+            %p 
+              %a Luật sư đi nhà hàng
+            %p 
+              %a Luật sư đi nhà hàng
+            %p 
+              %a Luật sư đi nhà hàng
+            %p 
+              %a Luật sư đi nhà hàng
     %footer.container-fluid.text-center
       %p Footer Text
+    #myModal-login.modal.fade{:role => "dialog"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", :type => "button"} ×
+            %h2.modal-title Đăng nhập
+          .modal-body
+            .row.login-with-oauth{style: "text-align:center"}
+              .col-xs-6
+                %h4 Login with Google
+                = image_tag("/assets/sign-in-google.png")
+              .col-xs-6
+                %h4 Login with Facebook
+                = image_tag("/assets/login-facebook.png")
+            .clear-fix{style: "border-bottom:1px solid  #f1f1f1; margin-top:10px;"} 
+            .row
+              .div.form-login{style: "padding:10px"}
+                %h4 Đăng nhập bằng email và mật khẩu.
+                %form
+                  .form-group
+                    %label{:for => "email"} Email:
+                    %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
+                  .form-group
+                    %label{:for => "pwd"} Password:
+                    %input#pwd.form-control{:placeholder => "Enter password", :type => "password"}/
+                  %button.btn.btn-primary{:type => "submit"} Đăng nhập
+    #myModal-signup.modal.fade{:role => "dialog"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", :type => "button"} ×
+            %h2.modal-title Đăng nhập
+          .modal-body
+            .div.form-create-account{style: "padding:10px"}
+              %h4{style: "text-align:center"} Create account
+              %form
+                .form-group
+                  %label{:for => "email"} Email:
+                  %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
+                .form-group
+                  %label{:for => "pwd"} Password:
+                  %input#pwd.form-control{:placeholder => "Enter password", :type => "password"}/
+                .form-group
+                  %label{:for => "pwd"} Password confimation:
+                  %input#pwd.form-control{:placeholder => "Enter password", :type => "password"}/  
+                %button.btn.btn-primary{:type => "submit"} Create
+    #myModal-dang-anh.modal.fade{:role => "dialog"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header{style: "text-align:center"}
+            %button.close{"data-dismiss" => "modal", :type => "button"} ×
+            %h2.modal-title Đăng hình ảnh mới 
+            %h5{style: "color:orange"} Chọn file từ máy tính của bạn, VuiVon hỗ trợ upload Ảnh, Video lên hệ thống.
+          .modal-body
+            .div.form-dang-anh{style: "padding:10px"}
+              %h4{style: "text-align:center;padding-bottom:20px;"} Lưu ý: Đây là SÂN CHƠI MIỄN PHÍ với môi trường trong sạch và lành mạnh cho các bạn trẻ. Hãy tham gia bằng sự HÀI HƯỚC trong phạm vi VĂN HOÁ và PHÁP LUẬT cho phép
+              %form
+                .form-group
+                  %label{:for => "email"} Tiêu đề của ảnh
+                  %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
+                  %label{style: "margin-top:15px;"} Select a file:
+                  %input{:name => "img", :type => "file"}/
+                %button.btn.btn-primary{:type => "submit"}  Đăng hình
+    #myModal-dang-truyen.modal.fade{:role => "dialog"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header{style: "text-align:center"}
+            %button.close{"data-dismiss" => "modal", :type => "button"} ×
+            %h2.modal-title Đăng truyen mới 
+          .modal-body
+            .div.form-dang-anh{style: "padding:10px"}
+              %h4{style: "text-align:center;padding-bottom:20px;"} Lưu ý: Đây là SÂN CHƠI MIỄN PHÍ với môi trường trong sạch và lành mạnh cho các bạn trẻ. Hãy tham gia bằng sự HÀI HƯỚC trong phạm vi VĂN HOÁ và PHÁP LUẬT cho phép
+              %form
+                .form-group
+                  %label{:for => "email"} Tiêu đề của truyen
+                  %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
+                  %label{style: "margin-top:15px;"} Noi dung truyen
+                  %input{:name => "img", :type => "file"}/
+                %button.btn.btn-primary{:type => "submit"}  Đăng hình
+          
+  
+  #fb-root
+  :javascript
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=1101931689850632";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
 
