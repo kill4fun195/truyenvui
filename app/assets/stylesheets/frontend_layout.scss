@@ -15,16 +15,22 @@ body
   color: #365899;
   cursor: pointer;
 }
+#myNavbar .login-facebook-button li a img 
+{
+  width: 40%;
+  float: right;
+  padding: 7px;
+}
+#myNavbar ul li a 
+{
+  font-weight: bold;
+}
 .sidenav .panel-body h4
 {
   margin-top: 0;
   padding: 0;
   font-weight:bold;
   color:#494949;
-}
-#myModal-login .login-with-oauth img
-{
-  width: 60%;
 }
 .sidenav .image-user img
 {
@@ -58,3 +64,62 @@ body
 {
   padding: 5px;
 }
+#myModal-dang-anh #something_unique
+{
+  width: 90%;
+}
+
+
+#topUserContent .topUsers
+{
+  float: left;
+  padding: 5px;
+  width: 50%;
+}
+#topUserContent .topUsers .user-image 
+{
+  display: block;
+  float: left;
+  padding: 5px;
+  width: 30%;
+}
+#topUserContent .topUsers .user-image img
+{
+  width: 100%;
+}
+#topUserContent .moreTop a
+{
+  color: #333;
+}
+#topUserContent .topUsers .info i
+{
+  font-size: 15px;
+} 
+#topUserContent .topUsers .name
+{
+  transition: color  0.2s linear 0s ;
+}
+
+#topUserContent .topUsers:hover .name
+{
+  color: #ba0068;
+}
+#topUserHeader .period ul li
+{
+  display:inline-block;
+}
+#topUserHeader .period ul li a
+{
+  color: #333;
+  text-decoration: none;
+  transition: color  0.2s linear 0s ;
+}
+#topUserHeader .period ul li:hover a
+{
+  color: #ba0068;
+}
+#topUserHeader .period ul li.active a
+{
+  color: #00a5f0;
+}
+

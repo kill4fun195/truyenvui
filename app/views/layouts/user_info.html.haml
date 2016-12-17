@@ -94,74 +94,34 @@
         .col-sm-7.text-left
           = yield
         .col-sm-3.sidenav
-          .div{style: "padding:10px 0px;"}
-            %button.btn.btn-primary{:type => "button", style: "font-size: 12px; font-weight: bold; width: 100%;"}  Click để bắt đầu chia sẻ những bức ảnh vui!
-          #topUser{style: "-moz-box-shadow: 2px 2px 2px 2px #ccc; -webkit-box-shadow: 2px 2px 2px 2x #ccc; box-shadow: 2px 2px 2px 2px #ccc;"}
-            .well{style: "padding:0px; text-align: left;height: auto ;background:#c9c9c9"} 
-              #topUserHeader
-                %div{style: "float: left;font-size: 16px;font-weight: bold;padding-left: 10px;padding-top: 5px;width: 50%;"}
-                  %i.fa.fa-users{"aria-hidden" => "true"}
-                  Top danh hài
-                .period{style: "font-style: italic;font-size: 13px;font-weight: bold;padding-top: 5px;"}
-                  %ul
-                    %li.active 
-                      %a{"data-toggle" => "tab", :href => "#tuan"} tuần
-                      \/
-                    %li 
-                      %a{"data-toggle" => "tab", :href => "#thang"} tháng
-                      \/
-                    %li 
-                      %a{"data-toggle" => "tab", :href => "#tatca"} tất cả      
-              .clear-fix 
-                #topUserContent
-                  .tab-content
-                    #tuan.tab-pane.fade.in.active 
-                      - 8.times do
-                        .topUsers{style: "margin-top: -8px;"}
-                          %a{ href: "#",style: "text-decoration: none;"}
-                            .user-image
-                              = image_tag("/assets/admin.jpg")
-                            .info{style: "font-size: 12px; font-weight: bold;margin-top: 4px;color: #333;"}
-                              %span.name{style: "display:block;"} Giang Trườn...
-                              %span
-                                %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                789
-                      .clear-fix
-                      .moreTop{style: "text-align:right; font-weight:bold; padding: 10px;"}
-                        %a{href: ""} xem thêm »
-                    #thang.tab-pane.fade
-                      - 6.times do
-                        .topUsers{style: "margin-top: -8px;"}
-                          %a{ href: "#",style: "text-decoration: none;"}
-                            .user-image
-                              = image_tag("/assets/admin.jpg")
-                            .info{style: "font-size: 12px; font-weight: bold;margin-top: 4px;color: #333;"}
-                              %span.name{style: "display:block;"} Giang Trườn...
-                              %span
-                                %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                789
-                      .clear-fix
-                      .moreTop{style: "text-align:right; font-weight:bold; padding: 10px;"}
-                        %a{href: ""} xem thêm »
-                    #tatca.tab-pane.fade
-                      - 4.times do
-                        .topUsers{style: "margin-top: -8px;"}
-                          %a{ href: "#",style: "text-decoration: none;"}
-                            .user-image
-                              = image_tag("/assets/admin.jpg")
-                            .info{style: "font-size: 12px; font-weight: bold;margin-top: 4px;color: #333;"}
-                              %span.name{style: "display:block;"} Giang Trườn...
-                              %span
-                                %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                789
-                      .clear-fix
-                      .moreTop{style: "text-align:right; font-weight:bold; padding: 10px;"}
-                        %a{href: ""} xem thêm »        
-                          
-          #fan-fage-facebook{style: "-moz-box-shadow: 2px 2px 2px 2px #ccc; -webkit-box-shadow: 2px 2px 2px 2x #ccc; box-shadow: 2px 2px 2px 2px #ccc;"}    
-            .well{style: "background: #c9c9c9; padding-top: 0;"}
-              %h4{style: "font-weight:bold;"} Ủng hộ VuiVon bạn nhé!
-              .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "false", "data-href" => "https://www.facebook.com/facebook", "data-show-facepile" => "true", "data-small-header" => "false", "data-tabs" => "timeline"}
+          #user_info{style: "-moz-box-shadow: 2px 2px 2px 2px #ccc; -webkit-box-shadow: 2px 2px 2px 2x #ccc; box-shadow: 2px 2px 2px 2px #ccc;"}
+            .well{style: "padding:0px; text-align: left;height: auto ;background:#c9c9c9"}
+              .avartar  
+                .user-image
+                  = image_tag("/assets/admin.jpg")
+                .name
+                  %h5{style: "font-weight:bold;margin-bottom: 4px;padding-top: 5px;"} Nguyen Van Dao
+                  %div{style: "font-size: 13px;"} Tham gia từ: 12/11/2016
+              .clear-fix  
+              .status{style: "margin: 20px 10px 10px 10px;"}
+                %div
+                  Số ảnh đã đăng: 
+                  %span.number 102 
+                %div
+                  Được like:  
+                  %span.number 102
+                  lần
+                %div
+                  Được bình luận: 
+                  %span.number 102
+                  lần
+                %div
+                  Được xem: 
+                  %span.number 102
+                  lần
+                %div
+                  Thứ hạng: 
+                  %span.number 102               
         .col-sm-1.sidenav     
     %footer.container-fluid.text-center
       %p Footer Text

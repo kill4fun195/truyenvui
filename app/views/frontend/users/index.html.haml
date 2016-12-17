@@ -1,0 +1,55 @@
+#frontends-index{style: "margin-top:20px"}
+  %h4{style: "font-weight:bold;"} Ảnh đã đăng 
+  - 5.times do
+    .row.anh-che-content.main-content
+      .col-sm-7{ style: "margin-bottom: 20px;"}
+        %a
+          = image_tag("/assets/anh-che.jpg")
+      .col-sm-5
+        .sticky_column
+          .anh-che-title
+            %h4{style: "font-weight:bold"} Tội nghiệp thằng ăn trộm 
+          .info
+            .div{style: "font-size: 12px; margin-bottom: 5px; margin-top: -8px;"}
+              Đăng bởi 
+              %a Khang 
+              19 phút trước 
+                
+            %p
+              %span{style: "padding-right: 10px;"}
+                %i.fa.fa-eye{"aria-hidden" => "true"}
+                1000
+              %span
+                %i.fa.fa-comments{"aria-hidden" => "true"}
+                10  
+          .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}  
+    .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}           
+
+              
+              
+
+  .paging
+    %p.paging-head
+      %i.fa.fa-file-text-o
+      Page
+      1
+      of
+      %span 34
+    %ul.pagination.pagination
+      %li.prev.disabled
+        %span ← Previous
+      %li.active
+        %span 1
+      %li
+        %a{:href => "/?page=2", :rel => "next"} 2
+      %li
+        %a{:href => "/?page=3"} 3
+      %li.disabled
+        %span …
+      %li
+        %a{:href => "/?page=33"} 33
+      %li
+        %a{:href => "/?page=34"} 34
+      %li.next
+        %a{:href => "/?page=2", :rel => "next"} Next →
+                  
