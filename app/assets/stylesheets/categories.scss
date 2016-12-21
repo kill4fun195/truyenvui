@@ -1,0 +1,38 @@
+#category-show 
+{
+  margin-top:20px;
+}
+#category-show .content-left .truyen-cuoi-content
+{
+  text-decoration:none;
+  color: #333;
+}
+#category-show .content-right .truyen-cuoi-title h4
+{
+  font-weight:bold;
+}
+#category-show .content-right .truyen-cuoi-title .title 
+{
+  color: #333;
+  text-decoration:none;
+  transition: color  0.2s linear 0s;
+}
+#category-show .content-right .truyen-cuoi-title h4:hover .title
+{
+  color: #ba0068;
+}
+#category-show .content-right .info .upload-at
+{
+  font-size: 12px; 
+  margin-bottom: 5px; 
+  margin-top: -5px;
+}
+#category-show .content-right .status 
+{
+  font-size:14px;
+  font-weight:bold;
+}
+#category-show .content-right .info .view 
+{
+  margin-right: 15px;
+}

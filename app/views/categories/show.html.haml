@@ -1,0 +1,31 @@
+#category-show
+  %h3 
+    = @category.name
+  - @posts.limit(10).each do |truyencuoi|
+    .row.main-content
+      .col-sm-7.content-left
+        %a.truyen-cuoi-content{:href => post_path(truyencuoi)}
+          .panel.panel-default
+            .panel-body  
+              = sanitize truyencuoi.content
+      .col-sm-5.content-right
+        .sticky_column
+          .truyen-cuoi-title
+            %h4
+              %a.title{:href => post_path(truyencuoi)} 
+                = truyencuoi.title
+          .info
+            .upload-at
+              Đăng bởi 
+              %a.name{ href: "" }
+                = truyencuoi.user.name
+              19 phút trước 
+            %p.status
+              %span.view
+                %i.fa.fa-eye{"aria-hidden" => "true"}
+                = truyencuoi.view
+              %span
+                %i.fa.fa-comments{"aria-hidden" => "true"}
+                10  
+          .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}  
+    .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}

@@ -50,4 +50,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "haml-rails", "~> 0.9"
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'devise'  
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'nokogiri'
+gem 'mechanize'
+gem 'friendly_id', '~> 5.1.0'
 

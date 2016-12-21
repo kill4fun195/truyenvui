@@ -59,50 +59,63 @@
         #myNavbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "#"} Mới
+              %a{:href => "/"} Mới
             %li
               %a{:href => "#"} Hot
             %li.dropdown.dang-bai
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => ""}
                 %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
                 Đăng bài
                 %span.caret
-              %ul.dropdown-menu{style: "background: #f1f1f1; "}
+              %ul.dropdown-menu
                 %li
                   %a{:href => "#myModal-dang-anh", "data-toggle" => "modal"} Đăng ảnh
                 %li
                   %a{:href => "#myModal-dang-truyen", "data-toggle" => "modal"} Đăng Truyện    
             %li.dropdown.category-truyen
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => ""}
                 %i.fa.fa-list{"aria-hidden" => "true"}
                 Thể loại truyện 
                 %span.caret
-              %ul.dropdown-menu{style: "background: #f1f1f1; "}
-                %li
-                  %a aaaaaa
-                %li
-                  %a bbbbbb
+              %ul.dropdown-menu
+                - @categories.each do |category|
+                  %li
+                    %a{:href => category_path(category)} 
+                      = category.name
             %li
-              %a{:href => "#"} Truyện cười       
+              %a{:href => "/truyencuoi"} Truyện cười       
           %ul.nav.navbar-nav.navbar-right.login-facebook-button
-            %li 
-              %a{:href => "", style: "padding: 0;"}
-                = image_tag("/assets/login-facebook.png")  
-    .container-fluid.text-center
+            - if current_user
+              %li.avatar.dropdown 
+                = image_tag(current_user.avatar.image.url,class: "dropdown-toggle","data-toggle" => "dropdown")
+                %ul.option.dropdown-menu
+                  %li 
+                    = link_to "ảnh đã đăng", user_path(current_user)
+                  %li 
+                    = link_to "truyện đã đăng", truyen_user_path(current_user)
+                  %li 
+                    = link_to "thông tin cá nhân", info_users_path
+                  %li 
+                    = link_to "thoát", destroy_user_session_path, :method => :delete
+            - else  
+              %li 
+                %a{:href => user_facebook_omniauth_authorize_path, style: "padding: 0;"}
+                  = image_tag("/assets/login-facebook.png")  
+    #content.container-fluid.text-center{style: "min-height: 900px"}
       .row.content
-        .col-sm-1.sidenav{style: "text-align:left"}
-        .col-sm-7.text-left
+        .col-sm-1.sidenav.content-left
+        .col-sm-7.text-left.main-content
           = yield
-        .col-sm-3.sidenav
-          .div{style: "padding:10px 0px;"}
-            %button.btn.btn-primary{:type => "button", style: "font-size: 12px; font-weight: bold; width: 100%;"}  Click để bắt đầu chia sẻ những bức ảnh vui!
-          #topUser{style: "-moz-box-shadow: 2px 2px 2px 2px #ccc; -webkit-box-shadow: 2px 2px 2px 2x #ccc; box-shadow: 2px 2px 2px 2px #ccc;"}
-            .well{style: "padding:0px; text-align: left;height: auto ;background:#c9c9c9"} 
+        .col-sm-3.sidenav.sidebar
+          .btn-dang-anh
+            %button.btn.btn-primary{:type => "button",:href => "#myModal-dang-anh", "data-toggle" => "modal"}  Click để bắt đầu chia sẻ những bức ảnh vui!
+          #topUser
+            .well
               #topUserHeader
-                %div{style: "float: left;font-size: 16px;font-weight: bold;padding-left: 10px;padding-top: 5px;width: 50%;"}
+                %h4
                   %i.fa.fa-users{"aria-hidden" => "true"}
                   Top danh hài
-                .period{style: "font-style: italic;font-size: 13px;font-weight: bold;padding-top: 5px;"}
+                .period
                   %ul
                     %li.active 
                       %a{"data-toggle" => "tab", :href => "#tuan"} tuần
@@ -116,94 +129,122 @@
                 #topUserContent
                   .tab-content
                     #tuan.tab-pane.fade.in.active 
-                      - 8.times do
-                        .topUsers{style: "margin-top: -8px;"}
-                          %a{ href: "#",style: "text-decoration: none;"}
+                      - @top_user_tuan.each do |f|
+                        .topUsers
+                          %a.detail-user{ :href => user_path(f)}
                             .user-image
-                              = image_tag("/assets/admin.jpg")
-                            .info{style: "font-size: 12px; font-weight: bold;margin-top: 4px;color: #333;"}
-                              %span.name{style: "display:block;"} Giang Trườn...
+                              - if f.avatar.present?
+                                = image_tag(f.avatar.image.url)
+                              - else
+                                = image_tag("/assets/admin.jpg")
+                            .info
+                              %span.name
+                                = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
                                 789
                       .clear-fix
-                      .moreTop{style: "text-align:right; font-weight:bold; padding: 10px;"}
+                      .moreTop
                         %a{href: ""} xem thêm »
                     #thang.tab-pane.fade
-                      - 6.times do
-                        .topUsers{style: "margin-top: -8px;"}
-                          %a{ href: "#",style: "text-decoration: none;"}
+                      - @top_user_thang.each do |f|
+                        .topUsers
+                          %a{ :href => user_path(f) }
                             .user-image
-                              = image_tag("/assets/admin.jpg")
-                            .info{style: "font-size: 12px; font-weight: bold;margin-top: 4px;color: #333;"}
-                              %span.name{style: "display:block;"} Giang Trườn...
+                              - if f.avatar.present?
+                                = image_tag(f.avatar.image.url)
+                              - else
+                                = image_tag("/assets/admin.jpg")
+                            .info
+                              %span.name
+                                = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
                                 789
                       .clear-fix
-                      .moreTop{style: "text-align:right; font-weight:bold; padding: 10px;"}
+                      .moreTop
                         %a{href: ""} xem thêm »
                     #tatca.tab-pane.fade
-                      - 4.times do
-                        .topUsers{style: "margin-top: -8px;"}
-                          %a{ href: "#",style: "text-decoration: none;"}
+                      - @top_user_tatca.each do |f|
+                        .topUsers
+                          %a{ :href => user_path(f) }
                             .user-image
-                              = image_tag("/assets/admin.jpg")
-                            .info{style: "font-size: 12px; font-weight: bold;margin-top: 4px;color: #333;"}
-                              %span.name{style: "display:block;"} Giang Trườn...
+                              - if f.avatar.present?
+                                = image_tag(f.avatar.image.url)
+                              - else
+                                = image_tag("/assets/admin.jpg")
+                            .info
+                              %span.name
+                                = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
                                 789
                       .clear-fix
-                      .moreTop{style: "text-align:right; font-weight:bold; padding: 10px;"}
+                      .moreTop
                         %a{href: ""} xem thêm »        
-                          
-          #fan-fage-facebook{style: "-moz-box-shadow: 2px 2px 2px 2px #ccc; -webkit-box-shadow: 2px 2px 2px 2x #ccc; box-shadow: 2px 2px 2px 2px #ccc;"}    
-            .well{style: "background: #c9c9c9; padding-top: 0;"}
-              %h4{style: "font-weight:bold;"} Ủng hộ VuiVon bạn nhé!
+          #fan-fage-facebook
+            .well
+              %h4 Ủng hộ VuiVon bạn nhé!
               .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "false", "data-href" => "https://www.facebook.com/facebook", "data-show-facepile" => "true", "data-small-header" => "false", "data-tabs" => "timeline"}
-        .col-sm-1.sidenav     
+        .col-sm-1.sidenav.content-right     
     %footer.container-fluid.text-center
       %p Footer Text
     #myModal-dang-anh.modal.fade{:role => "dialog"}
       .modal-dialog.modal-lg
         .modal-content
-          .modal-header{style: "text-align:center"}
-            %button.close{"data-dismiss" => "modal", :type => "button"} ×
-            %h2.modal-title Đăng hình ảnh mới 
-            %h5{style: "color:orange"} Chọn file từ máy tính của bạn, VuiVon hỗ trợ upload Ảnh, Video lên hệ thống.
-          .modal-body
-            .div.form-dang-anh{style: "padding:10px"}
-              %h4{style: "text-align:center;padding-bottom:20px;"} Lưu ý: Đây là SÂN CHƠI MIỄN PHÍ với môi trường trong sạch và lành mạnh cho các bạn trẻ. Hãy tham gia bằng sự HÀI HƯỚC trong phạm vi VĂN HOÁ và PHÁP LUẬT cho phép
-              %form
-                .form-group
-                  %label{:for => "email"} Tiêu đề của ảnh
-                  %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
-                  %label{style: "margin-top:15px;"} Select a file:
-                  %input{:name => "img", :type => "file", id: "something_else_unique"}/
-                  %img#something_unique
-                %button.btn.btn-primary{:type => "submit"}  Đăng hình
+          - if current_user
+            .modal-header{style: "text-align:center"}
+              %button.close{"data-dismiss" => "modal", :type => "button"} ×
+              %h2.modal-title Đăng hình ảnh mới 
+              %h5{style: "color:orange"} Chọn file từ máy tính của bạn, VuiVon hỗ trợ upload Ảnh, Video lên hệ thống.
+            .modal-body
+              .div.form-dang-anh{style: "padding:10px"}
+                %h4{style: "text-align:center;padding-bottom:20px;"} Lưu ý: Đây là SÂN CHƠI MIỄN PHÍ với môi trường trong sạch và lành mạnh cho các bạn trẻ. Hãy tham gia bằng sự HÀI HƯỚC trong phạm vi VĂN HOÁ và PHÁP LUẬT cho phép
+                = form_for "post" , url: posts_path do |f|
+                  .form-group
+                    = f.label "Tiêu đề của ảnh"
+                    = f.text_field :title, class: "form-control", :placeholder => "Tiêu đề của ảnh"
+                    = f.label "Select a file", style: "margin-top:15px;"
+                    = f.file_field :avatar, id: "something_else_unique"
+                    %img#something_unique{style: "max-width:500px;"}
+                    = f.label "Nguồn", style: "margin-top:15px;display:block;"
+                    = f.text_field :source, class: "form-control",:placeholder => "Nguồn của ảnh"
+                    = f.text_field :post_type, style: "display:none", value: "anh_che"
+                  %button.btn.btn-primary{:type => "submit",style: "margin-top:15px;"}  Đăng hình
+          - else  
+            .modal-header{style: "text-align:center"}
+              %h2 Ban phai dang nhap ms duoc dang anh
+              %a{:href => user_facebook_omniauth_authorize_path, style: "padding: 0;"}
+                = image_tag("/assets/login-facebook.png")  
+                
+                  
     #myModal-dang-truyen.modal.fade{:role => "dialog"}
       .modal-dialog.modal-lg
         .modal-content
-          .modal-header{style: "text-align:center"}
-            %button.close{"data-dismiss" => "modal", :type => "button"} ×
-            %h2.modal-title Đăng truyện mới 
-          .modal-body
-            .div.form-dang-anh{style: "padding:10px"}
-              %h4{style: "text-align:center;padding-bottom:20px;"} Lưu ý: Đây là SÂN CHƠI MIỄN PHÍ với môi trường trong sạch và lành mạnh cho các bạn trẻ. Hãy tham gia bằng sự HÀI HƯỚC trong phạm vi VĂN HOÁ và PHÁP LUẬT cho phép
-              %form
-                .form-group
-                  %label{:for => "email"} Tiêu đề của truyen
-                  %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
-                  %label{style: "margin-top:15px;"} Nội dung truyện
-                  %textarea 
-                  %label{style: "margin-top:15px;"} Thể loại truyện
-                  %select{:name => 'param_name'}
-                    %option{:value => 'A'} A data
-                    %option{:value => 'B'} B data
-                %button.btn.btn-primary{:type => "submit"}  Đăng truyện
-          
+          - if current_user
+            .modal-header{style: "text-align:center"}
+              %button.close{"data-dismiss" => "modal", :type => "button"} ×
+              %h2.modal-title Đăng truyện mới 
+            .modal-body
+              .div.form-dang-truyen{style: "padding:10px"}
+                %h4{style: "text-align:center;padding-bottom:20px;"} Lưu ý: Đây là SÂN CHƠI MIỄN PHÍ với môi trường trong sạch và lành mạnh cho các bạn trẻ. Hãy tham gia bằng sự HÀI HƯỚC trong phạm vi VĂN HOÁ và PHÁP LUẬT cho phép
+                = form_for "post" , url: posts_path do |f|
+                  .form-group
+                    = f.label "Tiêu đề của truyện"
+                    = f.text_field :title, class: "form-control", :placeholder => "Tiêu đề của truyện"
+                    = f.label "Nội dung truyện", style: "margin-top:15px;"
+                    = f.text_area :content
+                    = f.label "Thể loại truyện", style: "margin-top:15px;"
+                    = f.collection_select :category_id, Category.all, :id, :name
+                    = f.label "Nguồn", style: "margin-top:15px;display:block;"
+                    = f.text_field :source, class: "form-control",:placeholder => "Nguồn của ảnh"
+                    = f.text_field :post_type, style: "display:none", value: "truyen_cuoi"
+                  %button.btn.btn-primary{:type => "submit",style: "margin-top:15px;"}  Đăng truyện  
+          - else
+            .modal-header{style: "text-align:center"}
+              %h2 Bạn phải đăng nhập mới được đăng bài
+              %a{:href => user_facebook_omniauth_authorize_path, style: "padding: 0;"}
+                = image_tag("/assets/login-facebook.png")
   
   #fb-root
   :javascript
@@ -214,24 +255,25 @@
       js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=1101931689850632";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  :javascript
-    function handleFileSelect(evt) {
-      var files = evt.target.files; // FileList object
-        f=files[0]
-        // Only process image files.
-        if (f.type.match('image.*')) {
-          var reader = new FileReader();
-          reader.onload = (function(theFile) {
-            return function(e) {
-              // alert(e.target.result);
-              document.getElementById("something_unique").src=e.target.result;
-            };
-          })(f);
+  - if current_user
+    :javascript
+      function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+          f=files[0]
+          // Only process image files.
+          if (f.type.match('image.*')) {
+            var reader = new FileReader();
+            reader.onload = (function(theFile) {
+              return function(e) {
+                // alert(e.target.result);
+                document.getElementById("something_unique").src=e.target.result;
+              };
+            })(f);
 
-        // Read in the image file as a data URL.
-        reader.readAsDataURL(f);
+          // Read in the image file as a data URL.
+          reader.readAsDataURL(f);
+          }
         }
-      }
-    document.getElementById('something_else_unique').addEventListener('change', handleFileSelect, false);               
+      document.getElementById('something_else_unique').addEventListener('change', handleFileSelect, false);               
 
 

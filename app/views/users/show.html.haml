@@ -1,0 +1,74 @@
+#user-show
+  .row.user-content
+    .col-sm-7.content-left
+      .user-info
+        .well
+          .avatar
+            .user-image
+              - if @user.avatar.present?
+                = image_tag(@user.avatar.image.url)
+              - else
+                = image_tag("/assets/avatar.jpg")
+            .name 
+              = @user.name
+            .star-date 
+              Tham gia từ: 
+              = @start_date
+          .clear-fix  
+          .status
+            %div
+              Số ảnh đã đăng: 
+              %span.number 
+                = @total_anh_che
+            %div
+              Được like:  
+              %span.number 
+                = @total_like
+              lần
+            %div
+              Được bình luận: 
+              %span.number 
+                = @total_comment
+              lần
+            %div
+              Được xem: 
+              %span.number 
+                = @total_view
+              lần
+            %div
+              Thứ hạng: 
+              %span.number 
+                = @rank
+          %h4.option
+            %a{:href => truyen_user_path(@user)}
+              %i.fa.fa-pencil-square-o{"aria-hidden" => "true"} 
+              truyện  đã đăng            
+    .col-sm-5.content-right
+  .user-images   
+    %h3.header Ảnh đã đăng  
+    - @posts.each do |anh_che|
+      .row.main-content
+        .col-sm-7.content-left
+          %a
+            = image_tag(anh_che.avatar.image.url)
+        .col-sm-5.content-right
+          .sticky_column
+            .anh-che-title
+              %h4
+                = anh_che.title
+            .info
+              .uploader
+                Đăng bởi 
+                %a 
+                  = @user.name
+                19 phút trước 
+                  
+              .status
+                %span{style: "padding-right: 10px;"}
+                  %i.fa.fa-eye{"aria-hidden" => "true"}
+                  = anh_che.view
+                %span
+                  %i.fa.fa-comments{"aria-hidden" => "true"}
+                  10  
+            .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}  
+      .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}

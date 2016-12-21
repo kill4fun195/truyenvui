@@ -1,7 +1,22 @@
 Rails.application.routes.draw do
 
-  get '/truyencuoi' => 'frontend/jokes#index'
+  devise_for :users, :controllers =>{ :omniauth_callbacks => "omniauth_callbacks" }
+
+  resources :posts
+  resources :users do
+    member do
+      get "truyen"
+    end
+    collection do
+      get "info"
+    end
+  end
+  
+  resources :categories
+  
+  get '/truyencuoi' => 'posts#truyencuoi'
   get '/user' => 'frontend/users#index'
-  root "frontend/pictures#index"
+  root "posts#anh_che"
+
 
 end

@@ -1,0 +1,31 @@
+#frontend-anh-che
+  %h3 Trang chủ
+  - @posts.limit(10).each do |anh_che|
+    .row.main-content
+      .col-sm-7.content-left
+        %a.picture{:href => post_path(anh_che)}
+          - if anh_che.avatar.present?
+            = image_tag(anh_che.avatar.image.url)
+          - else
+            %span Missing
+      .col-sm-5.content-right
+        .sticky_column
+          .anh-che-title
+            %h4
+              %a{:href => post_path(anh_che)} 
+                = anh_che.title
+          .info
+            Đăng bởi 
+            %a{href: ""} 
+              = anh_che.user.name
+            19 phút trước 
+            .status
+              %span.view
+                %i.fa.fa-eye{"aria-hidden" => "true"}
+                = anh_che.view
+              %span
+                %i.fa.fa-comments{"aria-hidden" => "true"}
+                10  
+          .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}  
+    .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}  
+                  

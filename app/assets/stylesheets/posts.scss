@@ -1,0 +1,143 @@
+#post-show .post-detail .post-title h3 
+{
+  font-weight:bold;
+}
+#post-show .post-detail .status .view 
+{
+  margin-right: 10px;
+}
+#post-show .post-detail .content-left  i 
+{
+  font-weight: bold;
+}
+#post-show .post-detail .source
+{
+  margin-top:10px;
+}
+#post-show .post-detail .uploader 
+{
+  padding-top:0px;
+  height:auto;
+  margin-top:30px; 
+  color:#545454;
+}
+#post-show .post-detail  .upload_at
+{
+  margin-top:10px; 
+  margin-bottom:5px;
+  font-size:12px; 
+  font-weight:bold;
+}
+#post-show .post-detail .user_info .image
+{
+  width:20%;
+  margin-right:10px; 
+  float:left;
+}
+#post-show .post-detail  .image img
+{
+  width: 100%;
+}
+#post-show .post-detail .name-like span 
+{
+  display:block;
+}
+#post-show .post-content 
+{
+  margin-top:30px;
+}
+#post-show .post-content .post-image 
+{
+  text-align:center;
+}
+#post-show .post-content .post-image img 
+{
+  max-width:650px;
+}
+#post-show .post-content .post-image
+{
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+#frontend-anh-che 
+{
+  margin-top:20px;
+}
+#frontend-anh-che  .content-left
+{
+  margin-bottom: 20px;
+}
+#frontend-anh-che  .content-left .picture img 
+{
+  width: 100%;
+}
+#frontend-anh-che .content-right .anh-che-title h4
+{
+  font-weight:bold;
+}
+#frontend-anh-che  .content-right .anh-che-title h4 a
+{
+  text-decoration:none;
+  color:#333;
+  transition: color  0.2s linear 0s;
+}
+#frontend-anh-che  .content-right .anh-che-title h4:hover a
+{
+  color: #ba0068;
+}
+#frontend-anh-che .content-right .info
+{
+  font-size: 12px; 
+  margin-bottom: 5px; 
+  margin-top: -5px;
+}
+#frontend-anh-che  .content-right .info .status
+{
+  font-size:14px;
+  font-weight:bold;
+  margin-top:5px;
+}
+#frontend-anh-che  .content-right .info .view
+{
+  padding-right: 10px;
+}
+#frontend-truyen-cuoi 
+{
+  margin-top:20px;
+}
+#frontend-truyen-cuoi .content-left .truyen-cuoi-content
+{
+  text-decoration:none;
+  color: #333;
+}
+#frontend-truyen-cuoi .content-right .truyen-cuoi-title h4
+{
+  font-weight:bold;
+}
+#frontend-truyen-cuoi .content-right .truyen-cuoi-title .title 
+{
+  color: #333;
+  text-decoration:none;
+  transition: color  0.2s linear 0s;
+}
+#frontend-truyen-cuoi .content-right .truyen-cuoi-title h4:hover .title
+{
+  color: #ba0068;
+}
+#frontend-truyen-cuoi .content-right .info .upload-at
+{
+  font-size: 12px; 
+  margin-bottom: 5px; 
+  margin-top: -5px;
+}
+#frontend-truyen-cuoi .content-right .status 
+{
+  font-size:14px;
+  font-weight:bold;
+}
+#frontend-truyen-cuoi .content-right .info .view 
+{
+  margin-right: 15px;
+}
+

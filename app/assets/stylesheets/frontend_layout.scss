@@ -10,66 +10,111 @@ body
   line-height:1.38;
   font-size:14px;
 }
-.container-fluid .panel-body a
+p 
 {
-  color: #365899;
-  cursor: pointer;
+  margin:0px;
 }
-#myNavbar .login-facebook-button li a img 
+.panel-body
 {
-  width: 40%;
-  float: right;
-  padding: 7px;
+  min-height: 150px;
+}
+.content-left
+{
+  min-height: 150px;
 }
 #myNavbar ul li a 
 {
   font-weight: bold;
 }
-.sidenav .panel-body h4
+#myNavbar .dropdown-menu 
 {
-  margin-top: 0;
-  padding: 0;
-  font-weight:bold;
-  color:#494949;
+  background: #f1f1f1;
 }
-.sidenav .image-user img
+#myNavbar .dropdown:hover .dropdown-menu
 {
-  width:100%;
+  display:block;
 }
-.sidenav .user-info
-{
-  font-weight: bold;
-  line-height: 0.5;
-  margin-left: -10px;
-  margin-top: 5px;
-}
-.sidenav .well .wrapper-info
+#myNavbar .login-facebook-button .avatar
 {
   cursor:pointer;
-  color:#365899;
-  transition: color ease-out 0.3s;
 }
-.sidenav .well .wrapper-info:hover
+#myNavbar .login-facebook-button li a img
 {
-  color:#ba0068;
+  float: right;
+  height: 50px;
+} 
+#myNavbar .login-facebook-button .avatar img 
+{
+  width:50px;
+  height: 50px;
 }
-.sidenav .well .nav-tabs li
+#myNavbar .login-facebook-button:hover .option
 {
-  width: 33.3%;
-  text-align:center;
-  font-size:15px;
-  font-weight:bold;
-}
-.sidenav .well .clear-fix
-{
-  padding: 5px;
-}
-#myModal-dang-anh #something_unique
-{
-  width: 90%;
+  display:block;
 }
 
-
+#content .sidebar .btn-dang-anh button
+{
+  font-size: 12px; 
+  font-weight: bold; 
+  width: 100%;
+  padding:10px;
+  margin-bottom:10px;
+}
+#topUser 
+{
+  -moz-box-shadow: 2px 2px 2px 2px #ccc; 
+  -webkit-box-shadow: 2px 2px 2px 2x #ccc; 
+  box-shadow: 2px 2px 2px 2px #ccc;
+}
+#topUser .well
+{
+  padding:0px; 
+  text-align: left;
+  height: auto ;
+  background:#c9c9c9;
+}
+#topUserHeader h4 
+{
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+  width: 50%;
+  margin-top: 5px;
+}
+#topUserHeader .period
+{
+  font-style: italic;
+  font-size: 13px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+#topUserContent .topUsers
+{
+  margin-top: -8px;
+}
+#topUserContent .detail-user
+{
+  text-decoration:none;
+}
+#topUserContent .info
+{
+  font-size: 12px; 
+  font-weight: bold;
+  margin-top: 4px;
+  color: #333;
+}
+#topUserContent .info .name
+{
+  display:block;
+}
+#topUserContent .moreTop
+{
+  text-align:right; 
+  font-weight:bold; 
+  padding: 10px;
+}
 #topUserContent .topUsers
 {
   float: left;
@@ -122,4 +167,26 @@ body
 {
   color: #00a5f0;
 }
+#fan-fage-facebook 
+{
+  -moz-box-shadow: 2px 2px 2px 2px #ccc; 
+  -webkit-box-shadow: 2px 2px 2px 2x #ccc; 
+  box-shadow: 2px 2px 2px 2px #ccc;
+}
+#fan-fage-facebook .well 
+{
+  background: #c9c9c9; 
+  padding-top: 0;
+}
+#fan-fage-facebook .well h4
+{
+  font-weight:bold;
+}
+#myModal-dang-anh #something_unique
+{
+  width: 90%;
+}
+
+
+
 

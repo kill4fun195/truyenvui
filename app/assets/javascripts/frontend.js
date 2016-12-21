@@ -3,8 +3,7 @@ $(document).ready(function(){
     var height = $(item).find(".col-sm-7 ").outerHeight();
     $(item).find(".col-sm-5").height(height);
   });
-  var content_height = $(".row.content").outerHeight();
-  $(".row.content").find(".sidenav").height(content_height);
+  $("#content .sidenav").height($("#content").height());
 
   $(".sticky_column").stick_in_parent();
 })

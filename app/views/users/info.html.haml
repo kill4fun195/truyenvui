@@ -1,0 +1,20 @@
+#user-info 
+  - if flash[:error] == []
+    .alert.alert-success.alert-dismissable.fade.in{style: "margin:20px;"}
+      %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
+      %strong Success!
+      Thông tin tài khoản đã được cập nhật.
+  .form-update-user
+    %h3.header Cập nhật thông tin cá nhân
+    = form_for @user , url: user_path(@user) do |f|
+      .form-group
+        = f.label "Email"
+        = f.text_field :email, class: "form-control", disabled: "disabled"
+        = f.label "Tên hiển thị", style: "margin-top:15px;display:block;"
+        = f.text_field :name, class: "form-control",:placeholder => "Nguon của ảnh"
+        .avatar
+          = image_tag(@user.avatar.image.url)
+        = f.label "avatar", style: "margin-top:15px;"
+        = f.file_field :avatar, id: "something_else_unique"
+        %img#something_unique{style: "width: 150px;"}
+      %button.btn.btn-primary{:type => "submit",style: "margin-top:15px;"}  Cập nhật

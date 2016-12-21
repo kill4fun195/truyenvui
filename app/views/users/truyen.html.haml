@@ -1,0 +1,76 @@
+#user-truyen
+  .row.user-content
+    .col-sm-7.content-left
+      .user-info
+        .well
+          .avatar
+            .user-image
+              - if @user.avatar.present?
+                = image_tag(@user.avatar.image.url)
+              - else
+                = image_tag("/assets/avatar.jpg")
+            .name 
+              = @user.name
+            .star-date 
+              Tham gia từ: 
+              = @start_date
+          .clear-fix  
+          .status
+            %div
+              Số truyện đã đăng: 
+              %span.number 
+                = @total_truyen_cuoi
+            %div
+              Được like:  
+              %span.number 
+                = @total_like
+              lần
+            %div
+              Được bình luận: 
+              %span.number 
+                = @total_comment
+              lần
+            %div
+              Được xem: 
+              %span.number 
+                = @total_view
+              lần
+            %div
+              Thứ hạng: 
+              %span.number 
+                = @rank
+          %h4.option
+            %a{:href => user_path(@user)}
+              %i.fa.fa-picture-o{"aria-hidden" => "true"}
+              Ảnh đã đăng                
+    .col-sm-5.content-right 
+  .user-jokes 
+    %h3 Truyện đã đăng 
+    - @posts.limit(10).each do |truyencuoi|
+      .row.main-content
+        .col-sm-7.content-left
+          %a.truyen-cuoi-content{:href => post_path(truyencuoi)}
+            .panel.panel-default
+              .panel-body  
+                = sanitize truyencuoi.content
+        .col-sm-5.content-right
+          .sticky_column
+            .truyen-cuoi-title
+              %h4
+                %a.title{:href => post_path(truyencuoi)} 
+                  = truyencuoi.title
+            .info
+              .upload-at
+                Đăng bởi 
+                %a.name{ href: "" }
+                  = truyencuoi.user.name
+                19 phút trước 
+              %p.status
+                %span.view
+                  %i.fa.fa-eye{"aria-hidden" => "true"}
+                  = truyencuoi.view
+                %span
+                  %i.fa.fa-comments{"aria-hidden" => "true"}
+                  10  
+            .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}       
+      .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}
