@@ -22,6 +22,43 @@ p
 {
   min-height: 150px;
 }
+.fb-like-button 
+{
+  background: #4267b2 none repeat scroll 0 0;
+  border-radius: 3px;
+  color: white;
+  float: left;
+  margin-right: 5px;
+  padding: 1px;
+}
+.fb-like-button:hover 
+{
+  cursor:pointer;
+  background: #365899;
+}
+.fb-like-button .before-click
+{
+  padding-right:5px;
+}
+.fb-like-button i
+{
+  margin-left:3px;
+}
+.fb-like-button span 
+{
+  font-size:12px;
+}
+.fb-like-button span.text
+{
+  font-weight:bold;
+}
+.fb-like-button .after-click
+{
+  display:none;
+  background: #4080ff none repeat scroll 0 0;
+  border-radius: 3px;
+  padding-right:5px;
+}
 #myNavbar ul li a 
 {
   font-weight: bold;

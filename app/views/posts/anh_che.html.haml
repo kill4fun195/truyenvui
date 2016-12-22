@@ -26,6 +26,18 @@
               %span
                 %i.fa.fa-comments{"aria-hidden" => "true"}
                 10  
-          .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}  
+          .fb-like-button
+            .before-click
+              %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+              %span.text Like
+              %span.number 110
+            .after-click 
+              %i.fa.fa-check{"aria-hidden" => "true"}
+              %span.text Like
+              %span.number 111
+          .fb-share-button{"data-href" => post_path(anh_che), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+            %a.fb-xfbml-parse-ignore{:href => post_path(anh_che)+"&src=sdkpreparse", :target => "_blank"} Share
+
+ 
     .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}  
                   

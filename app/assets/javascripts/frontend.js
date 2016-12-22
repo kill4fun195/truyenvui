@@ -6,4 +6,8 @@ $(document).ready(function(){
   $("#content .sidenav").height($("#content").height());
 
   $(".sticky_column").stick_in_parent();
+  $(".fb-like-button").on("click",function(){
+    $(this).find(".before-click").toggle();
+    $(this).find(".after-click").toggle();
+  });
 })

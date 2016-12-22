@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers =>{ :omniauth_callbacks => "omniauth_callbacks" }
 
-  resources :posts
+  resources :posts do
+    member do
+      get "update_like"
+    end
+  end
   resources :users do
     member do
       get "truyen"

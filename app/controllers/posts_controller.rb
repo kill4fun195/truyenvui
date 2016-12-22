@@ -39,6 +39,10 @@ class PostsController < ApplicationController
     @post.update(view: @post.view + 1)
   end
 
+  def update_like
+    
+  end
+
   private 
 
   def source(post)
