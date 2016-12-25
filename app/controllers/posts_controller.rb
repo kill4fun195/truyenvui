@@ -26,21 +26,41 @@ class PostsController < ApplicationController
   end
 
   def truyencuoi
-    @posts = Post.where(post_type: 1).order('created_at  DESC')
+    @posts = Post.truyen_cuoi.paginate(page: params[:page], per_page: 10).order('created_at  DESC')
   end
 
   def anh_che
-     @posts = Post.where(post_type: 0).order('created_at  DESC')
+     @posts = Post.anh_che.paginate(page: params[:page], per_page: 10).order('created_at  DESC')
   end
 
   def show 
     @post = Post.friendly.find(params[:id])
     @check_source = source(@post)
     @post.update(view: @post.view + 1)
+    @user = @post.user
+    @like_total = @user.posts.sum(:like)
+  end
+
+  def hot
+    
+  end
+  
+  def the_end
+    
   end
 
   def update_like
-    
+    @post = Post.find(params[:post_id])
+    if params[:check] == "asc"
+      @post.update(like: @post.like + 1)
+    else
+      @post.update(like: @post.like - 1)
+    end
+  end
+
+  def update_comment
+    @post = Post.find(params[:post][:post_id])
+    @post.update(comment: params[:post][:comment_count])
   end
 
   private 

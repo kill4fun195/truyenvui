@@ -8,7 +8,7 @@
               - if @user.avatar.present?
                 = image_tag(@user.avatar.image.url)
               - else
-                = image_tag("/assets/avatar.jpg")
+                = image_tag("/assets/avatar.png")
             .name 
               = @user.name
             .star-date 
@@ -72,5 +72,26 @@
                 %span
                   %i.fa.fa-comments{"aria-hidden" => "true"}
                   10  
-            .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}       
+            .fb-like-button
+              .before-click
+                %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                %span.text Like
+                %span.number 
+                  = truyencuoi.like
+              .after-click 
+                %i.fa.fa-check{"aria-hidden" => "true"}
+                %span.text Like
+                %span.number 
+                  = truyencuoi.like + 1
+              .post-id{style: "display:none;"} 
+                = truyencuoi.id
+            .fb-share-button{"data-href" => post_url(truyencuoi), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+              %a.fb-xfbml-parse-ignore{:href => post_url(truyencuoi)+"&src=sdkpreparse", :target => "_blank"} Share       
       .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}
+  - if @posts.size > 9    
+    .infinite-scrolling
+      %button.btn.btn-info{:type => "button"} xem thêm, còn nhiều lắm
+      = will_paginate @posts
+  - elsif @posts.size == 0   
+    .notice 
+      %h4 Hiện tại chưa có nội dung nào... a hi hi.      

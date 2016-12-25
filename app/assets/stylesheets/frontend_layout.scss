@@ -10,6 +10,24 @@ body
   line-height:1.38;
   font-size:14px;
 }
+.tips
+{
+  background: #ffee8a none repeat scroll 0 0;
+  border: 1px solid #f8d50c;
+  color: #333;
+  margin-top: 10px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.tips span 
+{
+  font-weight:bold;
+}
+.rteright 
+{
+  display:none;
+}
 p 
 {
   margin:0px;
@@ -58,6 +76,14 @@ p
   background: #4080ff none repeat scroll 0 0;
   border-radius: 3px;
   padding-right:5px;
+}
+.infinite-scrolling .pagination
+{
+  display:none;
+}
+.infinite-scrolling .btn 
+{
+  width:100%;
 }
 #myNavbar ul li a 
 {

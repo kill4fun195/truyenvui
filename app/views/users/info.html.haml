@@ -13,7 +13,10 @@
         = f.label "Tên hiển thị", style: "margin-top:15px;display:block;"
         = f.text_field :name, class: "form-control",:placeholder => "Nguon của ảnh"
         .avatar
-          = image_tag(@user.avatar.image.url)
+          - if @user.avatar.present?
+            = image_tag(@user.avatar.image.url)
+          - else
+            = image_tag("/assets/avatar.png")
         = f.label "avatar", style: "margin-top:15px;"
         = f.file_field :avatar, id: "something_else_unique"
         %img#something_unique{style: "width: 150px;"}

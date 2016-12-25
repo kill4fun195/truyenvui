@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers =>{ :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :posts do
-    member do
+    collection do
       get "update_like"
+      get "the_end"
+      get "update_comment"
     end
   end
   resources :users do
@@ -21,6 +23,6 @@ Rails.application.routes.draw do
   get '/truyencuoi' => 'posts#truyencuoi'
   get '/user' => 'frontend/users#index'
   root "posts#anh_che"
-
+  get '/het' => 'posts#the_end'
 
 end

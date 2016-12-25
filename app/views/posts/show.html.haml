@@ -18,31 +18,51 @@
         %span.comment 
           %i.fa.fa-comments{"aria-hidden" => "true"} 
             Lượt bình luận: 
-            %span.number 2
+            %span.number 
+              = @post.comment
+        %span.post-id{style: "display:none;"}
+          = @post.id
       .source
         %span  
           %i.fa.fa-globe{"aria-hidden" => "true"} 
             Nguồn:
             %span
               - if @check_source == true
-                suu tam
+                sưu tầm
               - elsif @post.source.present?
                 = @post.source
               - else
-                suu tam
-      .fb-like{"data-action" => "like", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true", "data-size" => "small"}       
+                sưu tầm
+      .fb-like-button
+        .before-click
+          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+          %span.text Like
+          %span.number 
+            = @post.like
+        .after-click 
+          %i.fa.fa-check{"aria-hidden" => "true"}
+          %span.text Like
+          %span.number 
+            = @post.like + 1
+        .post-id{style: "display:none;"} 
+          = @post.id
+      .fb-share-button{"data-href" => post_url(@post), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+        %a.fb-xfbml-parse-ignore{:href => post_url(@post)+"&src=sdkpreparse", :target => "_blank"} Share      
     .col-xs-5.content-right
       .well.uploader
         %p.upload_at Đăng 2 phút trước bởi
         .user_info
           .image
-            = image_tag("/assets/admin.jpg")
+            - if @user.avatar.present?
+              = image_tag(@user.avatar.image.url)
+            -else 
+              = image_tag("/assets/avatar.png")
           .name-like
             %span.name
-              = link_to "Van Dao"
+              = link_to @user.name, user_path(@post.user)
             %span
               %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-              789
+              = @like_total
 
   .post-content
     - if @post.anh_che?
@@ -55,6 +75,6 @@
       .content 
         = sanitize @post.content
   #comment-facebook
-    .fb-comments{"data-href" => "https://localhost:3000", "data-numposts" => "5"}       
+    .fb-comments{"data-href" => post_url(@post), "data-numposts" => "3"}      
 
 

@@ -60,6 +60,16 @@
 {
   font-weight:bold;
 }
+#user-show .user-images .content-right .anh-che-title .title
+{
+  color: #333;
+  text-decoration:none;
+  transition: color  0.2s linear 0s;
+}
+#user-show .user-images .content-right .anh-che-title .title:hover
+{
+  color: #ba0068;
+}
 #user-show .user-images .content-right .info .uploader 
 {
   font-size: 12px; margin-bottom: 5px; margin-top: -8px;
@@ -156,4 +166,14 @@
 {
   max-height:120px;
   max-width:120px;
+}
+#user-truyen .user-jokes .truyen-cuoi-title .title
+{
+  color: #333;
+  text-decoration:none;
+  transition: color  0.2s linear 0s;
+}
+#user-truyen .user-jokes  .truyen-cuoi-title .title:hover
+{
+  color: #ba0068;
 }

@@ -136,13 +136,13 @@
                               - if f.avatar.present?
                                 = image_tag(f.avatar.image.url)
                               - else
-                                = image_tag("/assets/admin.jpg")
+                                = image_tag("/assets/avatar.png")
                             .info
                               %span.name
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                789
+                                = f.posts.sum(:like)
                       .clear-fix
                       .moreTop
                         %a{href: ""} xem thêm »
@@ -154,13 +154,13 @@
                               - if f.avatar.present?
                                 = image_tag(f.avatar.image.url)
                               - else
-                                = image_tag("/assets/admin.jpg")
+                                = image_tag("/assets/avatar.png")
                             .info
                               %span.name
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                789
+                                = f.posts.sum(:like)
                       .clear-fix
                       .moreTop
                         %a{href: ""} xem thêm »
@@ -172,13 +172,13 @@
                               - if f.avatar.present?
                                 = image_tag(f.avatar.image.url)
                               - else
-                                = image_tag("/assets/admin.jpg")
+                                = image_tag("/assets/avatar.png")
                             .info
                               %span.name
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                789
+                                = f.posts.sum(:like)
                       .clear-fix
                       .moreTop
                         %a{href: ""} xem thêm »        
@@ -214,8 +214,9 @@
                     = f.text_field :post_type, style: "display:none", value: "anh_che"
                   %button.btn.btn-primary{:type => "submit",style: "margin-top:15px;"}  Đăng hình
           - else  
-            .modal-header{style: "text-align:center"}
-              %h2 Ban phai dang nhap ms duoc dang anh
+            .modal-header.check-login{style: "text-align:center"}
+              %button.close{"data-dismiss" => "modal", :type => "button"} ×
+              %h3 Bạn phải đăng nhập mới được đăng bài
               %a{:href => user_facebook_omniauth_authorize_path, style: "padding: 0;"}
                 = image_tag("/assets/login-facebook.png")  
                 
@@ -243,8 +244,9 @@
                     = f.text_field :post_type, style: "display:none", value: "truyen_cuoi"
                   %button.btn.btn-primary{:type => "submit",style: "margin-top:15px;"}  Đăng truyện  
           - else
-            .modal-header{style: "text-align:center"}
-              %h2 Bạn phải đăng nhập mới được đăng bài
+            .modal-header.check-login{style: "text-align:center"}
+              %button.close{"data-dismiss" => "modal", :type => "button"} ×
+              %h3 Bạn phải đăng nhập mới được đăng bài
               %a{:href => user_facebook_omniauth_authorize_path, style: "padding: 0;"}
                 = image_tag("/assets/login-facebook.png")
   

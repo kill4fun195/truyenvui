@@ -1,5 +1,12 @@
 #frontend-anh-che
   %h3 Trang chủ
+  .tips 
+    %span 
+      Website 
+    đang trong quá trình 
+    %span 
+      nâng cấp
+    , sự ủng hộ của bạn là động lực của chúng tôi.
   - @posts.limit(10).each do |anh_che|
     .row.main-content
       .col-sm-7.content-left
@@ -16,28 +23,40 @@
                 = anh_che.title
           .info
             Đăng bởi 
-            %a{href: ""} 
+            %a{:href => user_path(anh_che.user)} 
               = anh_che.user.name
             19 phút trước 
             .status
               %span.view
                 %i.fa.fa-eye{"aria-hidden" => "true"}
                 = anh_che.view
-              %span
+              %span.comment
                 %i.fa.fa-comments{"aria-hidden" => "true"}
-                10  
+                =  anh_che.comment
           .fb-like-button
             .before-click
               %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
               %span.text Like
-              %span.number 110
+              %span.number 
+                = anh_che.like
             .after-click 
               %i.fa.fa-check{"aria-hidden" => "true"}
               %span.text Like
-              %span.number 111
-          .fb-share-button{"data-href" => post_path(anh_che), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
-            %a.fb-xfbml-parse-ignore{:href => post_path(anh_che)+"&src=sdkpreparse", :target => "_blank"} Share
+              %span.number 
+                = anh_che.like + 1
+            .post-id{style: "display:none;"} 
+              = anh_che.id
+          .fb-share-button{"data-href" => post_url(anh_che), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+            %a.fb-xfbml-parse-ignore{:href => post_url(anh_che)+"&src=sdkpreparse", :target => "_blank"} Share
 
  
-    .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}  
+    .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"} 
+  - if @posts.size > 9    
+    .infinite-scrolling
+      %button.btn.btn-info{:type => "button"} xem thêm, còn nhiều lắm
+      = will_paginate @posts
+  - elsif @posts.size == 0   
+    .notice 
+      %h4 Hiện tại chưa có nội dung nào... a hi hi. 
+
                   

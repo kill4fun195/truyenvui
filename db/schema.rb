@@ -53,10 +53,12 @@ ActiveRecord::Schema.define(version: 20161221113747) do
     t.string   "content"
     t.integer  "view",        default: 1
     t.integer  "like",        default: 0
+    t.integer  "comment",     default: 0
     t.string   "source"
     t.integer  "post_type"
     t.integer  "status",      default: 2
     t.string   "slug"
+    t.datetime "publish"
     t.integer  "user_id"
     t.integer  "category_id"
     t.datetime "created_at",              null: false
