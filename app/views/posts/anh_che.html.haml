@@ -12,7 +12,7 @@
       .col-sm-7.content-left
         %a.picture{:href => post_path(anh_che)}
           - if anh_che.avatar.present?
-            = image_tag(anh_che.avatar.image.url)
+            = image_tag(anh_che.avatar.image.url(:medium))
           - else
             %span Missing
       .col-sm-5.content-right

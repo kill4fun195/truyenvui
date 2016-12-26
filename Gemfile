@@ -58,4 +58,6 @@ gem 'mechanize'
 gem 'friendly_id', '~> 5.1.0'
 gem 'activeadmin'
 gem 'will_paginate-bootstrap'
+gem 'paperclip-watermark'
+gem 'cancan'
 

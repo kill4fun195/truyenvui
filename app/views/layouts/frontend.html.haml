@@ -86,8 +86,11 @@
               %a{:href => "/truyencuoi"} Truyện cười       
           %ul.nav.navbar-nav.navbar-right.login-facebook-button
             - if current_user
-              %li.avatar.dropdown 
-                = image_tag(current_user.avatar.image.url,class: "dropdown-toggle","data-toggle" => "dropdown")
+              %li.avatar.dropdown
+                - if current_user.avatar.present?
+                  = image_tag(current_user.avatar.image.url,class: "dropdown-toggle","data-toggle" => "dropdown")
+                - else
+                  = image_tag("/assets/avatar.png")  
                 %ul.option.dropdown-menu
                   %li 
                     = link_to "ảnh đã đăng", user_path(current_user)

@@ -55,7 +55,7 @@
           .image
             - if @user.avatar.present?
               = image_tag(@user.avatar.image.url)
-            -else 
+            - else 
               = image_tag("/assets/avatar.png")
           .name-like
             %span.name
