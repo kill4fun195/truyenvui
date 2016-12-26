@@ -67,8 +67,10 @@
   .post-content
     - if @post.anh_che?
       .post-image
-        - if @post.avatar.present?
-          = image_tag(@post.avatar.image.url)
+        - if @post.avatar.present? && @post.source == "vuivonvuivon"
+          = image_tag(@post.avatar.image.url(:medium), class: "watermark")
+        - elsif @post.avatar.present? && @post.source != "vuivonvuivon"  
+          = image_tag(@post.avatar.image.url(:origin))
         - else
           %span Missing
     - else

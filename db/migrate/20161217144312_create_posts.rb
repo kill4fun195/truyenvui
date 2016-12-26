@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :content
-      t.integer :view, default: 1
+      t.integer :view, default: 0
       t.integer :like, default: 0
       t.integer :comment, default: 0
       t.string :source

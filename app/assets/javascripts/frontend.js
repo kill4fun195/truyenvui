@@ -1,6 +1,6 @@
 $(document).ready(function(){  
   $(".main-content").each(function(index, item) {
-    var height = $(item).find(".col-sm-7 ").outerHeight();
+    var height = $(item).find(".col-sm-7").height();
     $(item).find(".col-sm-5").height(height);
   });
   $("#content .sidenav").height($("#content").height());

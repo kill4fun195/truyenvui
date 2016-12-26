@@ -51,7 +51,12 @@
 #user-show .user-images .content-left
 {
   margin-bottom: 20px;
+  overflow:hidden;
 } 
+#user-show .user-images .content-left .watermark 
+{
+  margin: 0 auto -40px ;
+}
 #user-show .user-images .content-left img 
 {
   width:100%;

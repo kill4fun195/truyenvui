@@ -16,7 +16,7 @@ task :create_data_truyenvui => :environment do
       i = 0
       while i < current_page_of_category.search(".node-truyen-cuoi h2 a").size
         article = current_page_of_category.link_with(:text => current_page_of_category.search(".node-truyen-cuoi h2 a")[i].text).click
-        Post.create(title: article.search("#tabs-wrapper h1").text, content: article.search(".content .field-item").to_s, user_id: rand(1..20), category_id: category_id,source: "truyencuoi",post_type: 1,status: 1)
+        Post.create(title: article.search("#tabs-wrapper h1").text, content: article.search(".content .field-item").to_s, user_id: rand(1..20), category_id: category_id,source: "truyencuoi",post_type: 1,status: 1, view: 1)
         puts "category #{name_category} article #{j}"
         i += 1
         j += 1
@@ -46,7 +46,7 @@ task :create_data_truyen_haivn => :environment do
       article_content =  Nokogiri::HTML article.body
       article_content.search(".post-header .badge-item-title").text
       article_content.search(".badge-post-container .text-content").to_s
-      Post.create(title: article_content.search(".post-header .badge-item-title").text, content: article_content.search(".badge-post-container .text-content").to_s, user_id: rand(1..20) , category_id: 1, source: "haivn", post_type: 1)
+      Post.create(title: article_content.search(".post-header .badge-item-title").text, content: article_content.search(".badge-post-container .text-content").to_s, user_id: rand(1..20) , category_id: 1, source: "vuivonvuivon", post_type: 1,view: 1)
       puts "book #{i}"
       i += 1
     end
@@ -68,7 +68,7 @@ task :create_data_anh_hai_haivn => :environment do
   page_content.search("#haivl-list-content .detail-info .badge-item-title a").each{ |x| post_title.push(x.text)}
   i = 0
   while(i < 12)
-    post = Post.create(title: post_title[i], post_type: 0, user_id: rand(1..20), source: "haivn")
+    post = Post.create(title: post_title[i], post_type: 0, user_id: rand(1..20), source: "vuivonvuivon",view: 1)
     img_url = "https://" + post_img_url[i]
     puts img_url
     anh_che = post.create_avatar(image: img_url)

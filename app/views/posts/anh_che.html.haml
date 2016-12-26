@@ -7,48 +7,55 @@
     %span 
       nâng cấp
     , sự ủng hộ của bạn là động lực của chúng tôi.
-  - @posts.limit(10).each do |anh_che|
+  - @posts.limit(10).each do |post|
     .row.main-content
       .col-sm-7.content-left
-        %a.picture{:href => post_path(anh_che)}
-          - if anh_che.avatar.present?
-            = image_tag(anh_che.avatar.image.url(:medium))
-          - else
-            %span Missing
+        - if post.anh_che?
+          %a.picture{:href => post_path(post)}
+            - if post.avatar.present? && post.source == "vuivonvuivon"
+              = image_tag(post.avatar.image.url(:medium),class: "watermark")
+            - elsif post.avatar.present? && post.source != "vuivonvuivon"
+              = image_tag(post.avatar.image.url(:origin))
+            - else
+              %span Missing
+        - elsif post.truyen_cuoi?
+          %a.truyen-cuoi-content{:href => post_path(post)}
+            .panel.panel-default
+              .panel-body  
+                = sanitize post.content
       .col-sm-5.content-right
         .sticky_column
           .anh-che-title
             %h4
-              %a{:href => post_path(anh_che)} 
-                = anh_che.title
+              %a{:href => post_path(post)} 
+                = post.title
           .info
             Đăng bởi 
-            %a{:href => user_path(anh_che.user)} 
-              = anh_che.user.name
+            %a{:href => user_path(post.user)} 
+              = post.user.name
             19 phút trước 
             .status
               %span.view
                 %i.fa.fa-eye{"aria-hidden" => "true"}
-                = anh_che.view
+                = post.view
               %span.comment
                 %i.fa.fa-comments{"aria-hidden" => "true"}
-                =  anh_che.comment
+                =  post.comment
           .fb-like-button
             .before-click
               %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
               %span.text Like
               %span.number 
-                = anh_che.like
+                = post.like
             .after-click 
               %i.fa.fa-check{"aria-hidden" => "true"}
               %span.text Like
               %span.number 
-                = anh_che.like + 1
+                = post.like + 1
             .post-id{style: "display:none;"} 
-              = anh_che.id
-          .fb-share-button{"data-href" => post_url(anh_che), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
-            %a.fb-xfbml-parse-ignore{:href => post_url(anh_che)+"&src=sdkpreparse", :target => "_blank"} Share
-
+              = post.id
+          .fb-share-button{"data-href" => post_url(post), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+            %a.fb-xfbml-parse-ignore{:href => post_url(post)+"&src=sdkpreparse", :target => "_blank"} Share
  
     .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"} 
   - if @posts.size > 9    

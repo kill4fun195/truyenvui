@@ -46,10 +46,6 @@
 {
   margin-top:30px;
 }
-#post-show .post-content .post-image 
-{
-  text-align:center;
-}
 #post-show .post-content .post-image img 
 {
   max-width:650px;
@@ -59,6 +55,10 @@
   margin-bottom: 10px;
   overflow: hidden;
   text-align: center;
+}
+#post-show .post-content .post-image .watermark 
+{
+  margin: 0 auto -40px;
 }
 #frontend-anh-che 
 {
@@ -71,6 +71,14 @@
 #frontend-anh-che  .content-left .picture img 
 {
   width: 100%;
+}
+#frontend-anh-che  .content-left 
+{
+  overflow:hidden;
+}
+#frontend-anh-che  .content-left .picture .watermark 
+{
+  margin: 0 auto -40px;
 }
 #frontend-anh-che .content-right .anh-che-title h4
 {
@@ -102,6 +110,12 @@
 {
   padding-right: 10px;
 }
+#frontend-anh-che .truyen-cuoi-content
+{
+  text-decoration:none;
+  color: #333;
+}
+
 #frontend-truyen-cuoi 
 {
   margin-top:20px;

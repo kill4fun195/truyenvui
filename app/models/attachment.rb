@@ -11,9 +11,15 @@ class Attachment < ActiveRecord::Base
                     :medium => { 
                             :processors => [:watermark],
                             :geometry => '',
-                            :watermark_path => Rails.root.join('app/assets/images/watermark-domain.png'),
-                            :position => 'North'
+                            :watermark_path => Rails.root.join('app/assets/images/haivn.png'),
+                            :position => 'SouthWest'
                         },
+                    :origin => { 
+                            :processors => [:watermark],
+                            :geometry => '',
+                            :watermark_path => Rails.root.join('app/assets/images/watermark-domain.png'),
+                            :position => 'SouthWest'
+                        },    
                   },
                   dependent: :allow_destroy
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
