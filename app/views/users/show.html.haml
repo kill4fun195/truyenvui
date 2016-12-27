@@ -53,7 +53,7 @@
             - if anh_che.avatar.present? && anh_che.source == "vuivonvuivon"
               = image_tag(anh_che.avatar.image.url(:medium),class: "watermark")
             - elsif anh_che.avatar.present? && anh_che.source != "vuivonvuivon"
-              = image_tag(anh_che.avatar.image.url(:origin))
+              = image_tag(anh_che.avatar.image.url(:origin),class: "watermark-origin")
             - else
               %span Missing
         .col-sm-5.content-right

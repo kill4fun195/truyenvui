@@ -4,21 +4,21 @@ class Attachment < ActiveRecord::Base
 
   #paperclip
   has_attached_file :image, 
-                  :processors => [:watermark], 
+                  :processors => [:watermark2], 
                   :url => "/system/:class/:attachment/:id_partition/:style/:filename",
                   :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
                   :styles => { 
                     :medium => { 
                             :processors => [:watermark],
                             :geometry => '',
-                            :watermark_path => Rails.root.join('app/assets/images/haivn.png'),
+                            :watermark_path => Rails.root.join('app/assets/images/watermarkfull.png'),
                             :position => 'SouthWest'
                         },
                     :origin => { 
-                            :processors => [:watermark],
-                            :geometry => '',
-                            :watermark_path => Rails.root.join('app/assets/images/watermark-domain.png'),
-                            :position => 'SouthWest'
+                            :processors => [:watermark2],
+                            :geometry => '601x0',
+                            :watermark_path => Rails.root.join('app/assets/images/test1.png'),
+                            :position => 'South' 
                         },    
                   },
                   dependent: :allow_destroy

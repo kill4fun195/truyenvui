@@ -11,7 +11,9 @@
  * file per style scope.
  *
  *= require bootstrap_custom
- *= require_tree .
+ *= require frontend_layout
+ *= require posts
+ *= require users
+ *= require categories
  *= require_self
  */
-
