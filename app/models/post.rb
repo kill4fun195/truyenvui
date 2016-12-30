@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
-
   enum post_type: {anh_che: 0, truyen_cuoi: 1}
-  enum status: {reject: 0, accept: 1, pending: 2 }
+  enum status: {reject: 0, accept: 1, pending: 2, publish: 3 }
 
   has_one :avatar, as: :attachable, class_name: "Attachment",dependent: :destroy
   belongs_to :user

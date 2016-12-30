@@ -15,3 +15,23 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+.col-avatar_url img
+{
+  width:200px;
+}
+.col-avatar_medium img
+{
+  width:200px;
+}
+
+.col-avatar_origin img
+{
+  width:200px;
+}
+.table_actions button.selected 
+{
+  background:blue;
+}
+
+
+

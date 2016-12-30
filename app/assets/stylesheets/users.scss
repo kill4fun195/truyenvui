@@ -186,3 +186,97 @@
 {
   color: #ba0068;
 }
+
+// css top-user
+.top-user-content
+{
+  background: #dedede;
+  overflow:hidden;
+  border-radius: 5px;
+  margin-top: 20px;
+  box-shadow: 0 0 3px #888;
+  text-shadow: 0 1px #eee;
+}
+.top-user-content .top-user-head 
+{
+  margin:10px;
+  overflow:hidden;
+}
+.top-user-content .top-user-head .head 
+{
+  float:left;
+  margin:0px;
+  font-weight:bold;
+}
+.top-user-content .top-user-head .top-user-sort
+{
+  float:right;
+}
+.top-user-content .top-user-head .top-user-sort li
+{
+  display:inline;
+
+}
+.top-user-content .top-user-head .top-user-sort li.active a
+{
+  color: #00a5f0;
+}
+.top-user-content .top-user-head .top-user-sort li a
+{
+  font-style: inline;
+  font-weight:bold;
+  color: #333;
+  text-decoration: none;
+  transition: color  0.2s linear 0s;
+}
+.top-user-content .top-user-head .top-user-sort li a:hover 
+{
+  color: #ba0068;
+}
+.top-user-details .div 
+{
+  width:33.33%;
+  float:left;
+}
+.top-user-content .top-user-details 
+{
+  padding:0px 10px;
+}
+.top-user-details .user-info
+{
+  width:33.33%;
+  float:left;
+  margin-bottom:10px;
+}
+.top-user-details .user-info .user-link 
+{
+  color:#333;
+}
+.top-user-details .user-info .user-image
+{
+  width:25%;
+  float:left;
+  margin-right:5px;
+}
+.top-user-details .user-info .user-image img
+{
+  width:100%;
+}
+.top-user-details .user-info .info
+{
+  float:left;
+}
+.top-user-details .user-info .info span 
+{
+  font-weight:bold;
+}
+.top-user-details .user-info .info .name
+{
+  display:block;
+  transition: color  0.2s linear 0s;
+}
+.top-user-details .user-info .user-link:hover .info .name
+{
+  color: #ba0068;
+}
+

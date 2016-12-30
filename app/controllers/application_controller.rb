@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
 
 
     def initial_sidebar
-      @top_user_tuan = User.includes(:avatar).limit(8).order(created_at: :desc)
-      @top_user_thang = User.includes(:avatar).limit(8)
-      @top_user_tatca = User.includes(:avatar).limit(8)
+      @top_user_tuan = User.includes(:avatar).limit(8).order(like_week: :desc)
+      @top_user_thang = User.includes(:avatar).limit(8).order(like_month: :desc)
+      @top_user_tatca = User.includes(:avatar).limit(8).order(like_total: :desc)
       @categories = Category.all
     end 
 end

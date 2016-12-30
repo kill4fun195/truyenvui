@@ -17,9 +17,11 @@
           .info
             .upload-at
               Đăng bởi 
-              %a.name{ href: "" }
+              %a.name{ :href => user_path(truyencuoi.user) }
                 = truyencuoi.user.name
-              19 phút trước 
+              %span.publish-time
+                = time_ago_in_words(truyencuoi.publish)
+              trước 
             %p.status
               %span.view
                 %i.fa.fa-eye{"aria-hidden" => "true"}

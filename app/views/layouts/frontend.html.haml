@@ -145,14 +145,14 @@
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                = f.posts.sum(:like)
+                                = f.like_total
                       .clear-fix
                       .moreTop
-                        %a{href: ""} xem thêm »
+                        %a{:href => top_user_week_users_path} xem thêm »
                     #thang.tab-pane.fade
                       - @top_user_thang.each do |f|
                         .topUsers
-                          %a{ :href => user_path(f) }
+                          %a.detail-user{ :href => user_path(f) }
                             .user-image
                               - if f.avatar.present?
                                 = image_tag(f.avatar.image.url)
@@ -163,14 +163,14 @@
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                = f.posts.sum(:like)
+                                = f.like_total
                       .clear-fix
                       .moreTop
-                        %a{href: ""} xem thêm »
+                        %a{:href => top_user_month_users_path} xem thêm »
                     #tatca.tab-pane.fade
                       - @top_user_tatca.each do |f|
                         .topUsers
-                          %a{ :href => user_path(f) }
+                          %a.detail-user{ :href => user_path(f) }
                             .user-image
                               - if f.avatar.present?
                                 = image_tag(f.avatar.image.url)
@@ -181,10 +181,10 @@
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                = f.posts.sum(:like)
+                                = f.like_total
                       .clear-fix
                       .moreTop
-                        %a{href: ""} xem thêm »        
+                        %a{:href => top_user_total_users_path} xem thêm »        
           #fan-fage-facebook
             .well
               %h4 Ủng hộ VuiVon bạn nhé!
@@ -193,7 +193,7 @@
                   %a{:href => "https://www.facebook.com/Vui-V%E1%BB%93n-1283615565042606"} Vui Vồn
         .col-sm-1.sidenav.content-right     
     %footer.container-fluid.text-center
-      %p Footer Text
+      %p Chúc bạn: 12 tháng phú quý, 365 ngày phát tài, 8760 giờ sung túc, 525600 phút thành công 31536000 giây vạn sự như ý.
     #myModal-dang-anh.modal.fade{:role => "dialog"}
       .modal-dialog.modal-lg
         .modal-content

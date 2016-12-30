@@ -23,7 +23,7 @@
             %div
               Được like:  
               %span.number 
-                = @total_like
+                = @user.like_total
               lần
             %div
               Được bình luận: 
@@ -65,9 +65,11 @@
             .info
               .uploader
                 Đăng bởi 
-                %a{:href => ""}  
+                %a{:href => user_path(@user)}  
                   = @user.name
-                19 phút trước 
+                %span.publish-time
+                  = time_ago_in_words(anh_che.publish)
+                trước    
                   
               .status
                 %span{style: "padding-right: 10px;"}

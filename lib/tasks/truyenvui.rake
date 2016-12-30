@@ -16,7 +16,7 @@ task :create_data_truyenvui => :environment do
       i = 0
       while i < current_page_of_category.search(".node-truyen-cuoi h2 a").size
         article = current_page_of_category.link_with(:text => current_page_of_category.search(".node-truyen-cuoi h2 a")[i].text).click
-        Post.create(title: article.search("#tabs-wrapper h1").text, content: article.search(".content .field-item").to_s, user_id: rand(1..20), category_id: category_id,source: "truyencuoi",post_type: 1,status: 1, view: 1)
+        Post.create(title: article.search("#tabs-wrapper h1").text, content: article.search(".content .field-item").to_s, user_id: rand(1..20), category_id: category_id,source: "truyencuoi",post_type: 1,status: 3, view: 1)
         puts "category #{name_category} article #{j}"
         i += 1
         j += 1

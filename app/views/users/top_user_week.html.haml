@@ -1,0 +1,31 @@
+#top-user-week
+  .top-user-content
+    .top-user-head 
+      %h4.head 
+        %i.fa.fa-users{"aria-hidden"=>"true"}
+        Danh hài được "Like" nhiều nhất 
+      %ul.top-user-sort
+        %li.active 
+          %a{ :href => top_user_week_path} trong tuần
+          \/
+        %li 
+          %a{:href => top_user_month_path} trong tháng
+          \/
+        %li 
+          %a{:href => top_user_total_path} tất cả     
+    .top-user-details  
+      - @users.limit(36).each do |user|
+        .user-info
+          %a.user-link{:href => user_path(user)}
+            - if user.avatar.present?
+              .user-image
+                = image_tag(user.avatar.image.url)
+            - else
+              .user-image
+                = image_tag("/assets/avatar.png")
+            .info 
+              %span.name 
+                = user.name
+              %span.like 
+                %i.fa.fa-thumbs-up{"aria-hidden"=>"true"}
+                = user.like_week

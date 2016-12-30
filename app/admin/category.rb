@@ -20,6 +20,24 @@ ActiveAdmin.register Category do
         scoped_collection.find(params[:id])
       end
     end
+
+    def create
+      @category = Category.create(category_params)
+      redirect_to admin_category_path(@category)
+    end
+
+    def update 
+      @category = Category.friendly.find(params[:id])
+      @category.update(category_params)
+      redirect_to admin_category_path(@category)
+    end
+
+    private
+
+      def category_params
+        params.require(:category).permit(:name, :slug)
+      end
+
   end
 
 end

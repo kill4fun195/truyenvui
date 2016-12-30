@@ -10,7 +10,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :post_type
       t.integer :status, default: 2
       t.string :slug
-      t.datetime :publish
+      t.datetime :publish, default: Time.zone.now
       t.belongs_to :user, index: true
       t.belongs_to :category, index: true
       t.timestamps null: false

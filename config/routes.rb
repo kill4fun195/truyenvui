@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     end
     collection do
       get "info"
+      get "top_user_week"
+      get "top_user_month"
+      get "top_user_total"
     end
   end
   
@@ -26,5 +29,8 @@ Rails.application.routes.draw do
   get '/user' => 'frontend/users#index'
   root "posts#anh_che"
   get '/het' => 'posts#the_end'
+  get '/top-user/week' => 'users#top_user_week'
+  get '/top-user/month' => 'users#top_user_month'
+  get '/top-user/total' => 'users#top_user_total'
 
 end

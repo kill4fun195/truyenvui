@@ -50,7 +50,11 @@
         %a.fb-xfbml-parse-ignore{:href => post_url(@post)+"&src=sdkpreparse", :target => "_blank"} Share      
     .col-xs-5.content-right
       .well.uploader
-        %p.upload_at Đăng 2 phút trước bởi
+        %p.upload_at 
+          Đăng 
+          %span.publish-time 
+            = time_ago_in_words(@post.publish) 
+          trước bởi
         .user_info
           .image
             - if @user.avatar.present?

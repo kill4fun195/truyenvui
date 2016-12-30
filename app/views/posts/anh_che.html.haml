@@ -33,7 +33,9 @@
             Đăng bởi 
             %a{:href => user_path(post.user)} 
               = post.user.name
-            19 phút trước 
+            %span.publish-time
+              = time_ago_in_words(post.publish)
+            trước   
             .status
               %span.view
                 %i.fa.fa-eye{"aria-hidden" => "true"}

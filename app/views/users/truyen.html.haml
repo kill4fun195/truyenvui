@@ -23,7 +23,7 @@
             %div
               Được like:  
               %span.number 
-                = @total_like
+                = @user.like_total
               lần
             %div
               Được bình luận: 
@@ -62,9 +62,11 @@
             .info
               .upload-at
                 Đăng bởi 
-                %a.name{ href: "" }
-                  = truyencuoi.user.name
-                19 phút trước 
+                %a.name{ :href => user_path(@user) }
+                  = @user.name
+                %span.publish-time
+                  = time_ago_in_words(anh_che.publish)
+                trước 
               %p.status
                 %span.view
                   %i.fa.fa-eye{"aria-hidden" => "true"}
