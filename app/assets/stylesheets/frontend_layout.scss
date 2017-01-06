@@ -10,6 +10,7 @@ body
   line-height:1.38;
   font-size:14px;
 }
+
 .tips
 {
   background: #ffee8a none repeat scroll 0 0;
@@ -76,6 +77,10 @@ p
   background: #4080ff none repeat scroll 0 0;
   border-radius: 3px;
   padding-right:5px;
+}
+.infinite-scrolling 
+{
+  margin-bottom:10px;
 }
 .infinite-scrolling .pagination
 {

@@ -5,50 +5,84 @@
       %strong Success!
       Nội dung của bạn sẽ được bình chọn bởi hội đồng trước khi được hiển thị ở trang chủ. 
   .row.post-detail
-    .col-xs-7.content-left
-      .post-title
-        %h3 
-          = @post.title
-      .status
-        %span.view
-          %i.fa.fa-eye{"aria-hidden" => "true"} 
-            Lượt xem:
+    .col-md-7.content-left.col-xs-12
+      .col-xs-info.visible-xs
+        %h4.title
+          %a{:href => post_path(@post)} 
+            = @post.title
+        .upload-at
+          Đăng 
+          %span.publish-time 
+            = time_ago_in_words(@post.publish) 
+          trước bởi
+          %span
+            = @post.user.name  
+        .status    
+          %span.view
+            %i.fa.fa-eye{"aria-hidden" => "true"}
+            = @post.view
+          %span.comment
+            %i.fa.fa-comments{"aria-hidden" => "true"}
+            =  @post.comment
+        .fb-like-button
+          .before-click
+            %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+            %span.text Like
             %span.number 
-              = @post.view
-        %span.comment 
-          %i.fa.fa-comments{"aria-hidden" => "true"} 
-            Lượt bình luận: 
+              = @post.like
+          .after-click 
+            %i.fa.fa-check{"aria-hidden" => "true"}
+            %span.text Like
             %span.number 
-              = @post.comment
-        %span.post-id{style: "display:none;"}
-          = @post.id
-      .source
-        %span  
-          %i.fa.fa-globe{"aria-hidden" => "true"} 
-            Nguồn:
-            %span
-              - if @check_source == true
-                sưu tầm
-              - elsif @post.source.present?
-                = @post.source
-              - else
-                sưu tầm
-      .fb-like-button
-        .before-click
-          %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-          %span.text Like
-          %span.number 
-            = @post.like
-        .after-click 
-          %i.fa.fa-check{"aria-hidden" => "true"}
-          %span.text Like
-          %span.number 
-            = @post.like + 1
-        .post-id{style: "display:none;"} 
-          = @post.id
-      .fb-share-button{"data-href" => post_url(@post), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
-        %a.fb-xfbml-parse-ignore{:href => post_url(@post)+"&src=sdkpreparse", :target => "_blank"} Share      
-    .col-xs-5.content-right
+              = @post.like + 1
+          .post-id{style: "display:none;"} 
+            = @post.id
+        .fb-share-button{"data-href" => post_url(@post), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+          %a.fb-xfbml-parse-ignore{:href => post_url(@post)+"&src=sdkpreparse", :target => "_blank"} Share
+      .hidden-xs        
+        .post-title
+          %h3 
+            = @post.title
+        .status
+          %span.view
+            %i.fa.fa-eye{"aria-hidden" => "true"} 
+              Lượt xem:
+              %span.number 
+                = @post.view
+          %span.comment 
+            %i.fa.fa-comments{"aria-hidden" => "true"} 
+              Lượt bình luận: 
+              %span.number 
+                = @post.comment
+          %span.post-id{style: "display:none;"}
+            = @post.id
+        .source
+          %span  
+            %i.fa.fa-globe{"aria-hidden" => "true"} 
+              Nguồn:
+              %span
+                - if @check_source == true
+                  sưu tầm
+                - elsif @post.source.present?
+                  = @post.source
+                - else
+                  sưu tầm
+        .fb-like-button
+          .before-click
+            %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+            %span.text Like
+            %span.number 
+              = @post.like
+          .after-click 
+            %i.fa.fa-check{"aria-hidden" => "true"}
+            %span.text Like
+            %span.number 
+              = @post.like + 1
+          .post-id{style: "display:none;"} 
+            = @post.id
+        .fb-share-button{"data-href" => post_url(@post), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+          %a.fb-xfbml-parse-ignore{:href => post_url(@post)+"&src=sdkpreparse", :target => "_blank"} Share      
+    .col-md-5.content-right.hidden-xs
       .well.uploader
         %p.upload_at 
           Đăng 

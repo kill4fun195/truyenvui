@@ -43,17 +43,43 @@
             %a{:href => user_path(@user)}
               %i.fa.fa-picture-o{"aria-hidden" => "true"}
               Ảnh đã đăng                
-    .col-sm-5.content-right 
+    .col-sm-5.content-right.hidden-xs
   .user-jokes 
     %h3 Truyện đã đăng 
     - @posts.limit(10).each do |truyencuoi|
       .row.main-content
-        .col-sm-7.content-left
+        .col-sm-7.content-left.col-xs-12
+          .col-xs-info.visible-xs
+            %h4.title
+              %a{:href => post_path(truyencuoi)} 
+                = truyencuoi.title
+            .status    
+              %span.view
+                %i.fa.fa-eye{"aria-hidden" => "true"}
+                = truyencuoi.view
+              %span.comment
+                %i.fa.fa-comments{"aria-hidden" => "true"}
+                =  truyencuoi.comment
+            .fb-like-button
+              .before-click
+                %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                %span.text Like
+                %span.number 
+                  = truyencuoi.like
+              .after-click 
+                %i.fa.fa-check{"aria-hidden" => "true"}
+                %span.text Like
+                %span.number 
+                  = truyencuoi.like + 1
+              .post-id{style: "display:none;"} 
+                = truyencuoi.id
+            .fb-share-button{"data-href" => post_url(truyencuoi), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+              %a.fb-xfbml-parse-ignore{:href => post_url(truyencuoi)+"&src=sdkpreparse", :target => "_blank"} Share     
           %a.truyen-cuoi-content{:href => post_path(truyencuoi)}
             .panel.panel-default
               .panel-body  
                 = sanitize truyencuoi.content
-        .col-sm-5.content-right
+        .col-sm-5.content-right.hidden-xs
           .sticky_column
             .truyen-cuoi-title
               %h4
@@ -65,7 +91,7 @@
                 %a.name{ :href => user_path(@user) }
                   = @user.name
                 %span.publish-time
-                  = time_ago_in_words(anh_che.publish)
+                  = time_ago_in_words(truyencuoi.publish)
                 trước 
               %p.status
                 %span.view
@@ -89,7 +115,7 @@
                 = truyencuoi.id
             .fb-share-button{"data-href" => post_url(truyencuoi), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
               %a.fb-xfbml-parse-ignore{:href => post_url(truyencuoi)+"&src=sdkpreparse", :target => "_blank"} Share       
-      .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}
+      .clear-fix{style: "border-bottom: 1px solid #ddd;"}
   - if @posts.size > 9    
     .infinite-scrolling
       %button.btn.btn-info{:type => "button"} xem thêm, còn nhiều lắm

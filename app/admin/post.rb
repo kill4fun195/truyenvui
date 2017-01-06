@@ -1,6 +1,8 @@
 ActiveAdmin.register Post do
   config.batch_actions = false
   scope :all, :default => true
+  scope("anh_che") { |scope| scope.where("post_type = ? ", 0) }
+  scope("truyen_cuoi") { |scope| scope.where("post_type = ? ", 1) }
   scope("anh_che_haivn") { |scope| scope.where("post_type = ? AND user_id IN (?) ", 0, 1..20) }
   scope("truyen_cuoi_haivn") { |scope| scope.where("post_type = ? AND user_id IN (?) ", 1, 1..20) }
   scope("anh_che_user") { |scope| scope.where("post_type = ? AND user_id NOT IN (?) ", 0, 1..20) }
@@ -9,6 +11,8 @@ ActiveAdmin.register Post do
   scope("truyen_cuoi_haivn_pending") { |scope| scope.where("post_type = ? AND user_id IN (?) AND status = ? ", 1, 1..20, 2 ) }
   scope("anh_che_user_pending") { |scope| scope.where("post_type = ? AND user_id NOT IN (?) AND status = ? ", 0, 1..20, 2 ) }
   scope("truyen_cuoi_user_pending") { |scope| scope.where("post_type = ? AND user_id NOT IN (?) AND status = ? ", 1, 1..20, 2 ) }
+  scope("anh_che_accept") { |scope| scope.where("post_type = ? AND status = ? ", 0, 1 ) }
+  scope("truyen_cuoi_accept") { |scope| scope.where("post_type = ? AND status = ? ", 1,1 ) }
   index do
     selectable_column
     column  :id

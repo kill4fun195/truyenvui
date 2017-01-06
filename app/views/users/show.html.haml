@@ -43,12 +43,38 @@
             %a{:href => truyen_user_path(@user)}
               %i.fa.fa-pencil-square-o{"aria-hidden" => "true"} 
               truyện  đã đăng            
-    .col-sm-5.content-right
+    .col-sm-5.content-right.hidden-xs
   .user-images   
     %h3.header Ảnh đã đăng  
     - @posts.each do |anh_che|
       .row.main-content
-        .col-sm-7.content-left
+        .col-sm-7.content-left.col-xs-12
+          .col-xs-info.visible-xs
+            %h4.title
+              %a{:href => post_path(anh_che)} 
+                = anh_che.title
+            .status    
+              %span.view
+                %i.fa.fa-eye{"aria-hidden" => "true"}
+                = anh_che.view
+              %span.comment
+                %i.fa.fa-comments{"aria-hidden" => "true"}
+                =  anh_che.comment
+            .fb-like-button
+              .before-click
+                %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+                %span.text Like
+                %span.number 
+                  = anh_che.like
+              .after-click 
+                %i.fa.fa-check{"aria-hidden" => "true"}
+                %span.text Like
+                %span.number 
+                  = anh_che.like + 1
+              .post-id{style: "display:none;"} 
+                = anh_che.id
+            .fb-share-button{"data-href" => post_url(anh_che), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+              %a.fb-xfbml-parse-ignore{:href => post_url(anh_che)+"&src=sdkpreparse", :target => "_blank"} Share     
           %a{:href => post_path(anh_che)} 
             - if anh_che.avatar.present? && anh_che.source == "vuivonvuivon"
               = image_tag(anh_che.avatar.image.url(:medium),class: "watermark")
@@ -56,7 +82,7 @@
               = image_tag(anh_che.avatar.image.url(:origin),class: "watermark-origin")
             - else
               %span Missing
-        .col-sm-5.content-right
+        .col-sm-5.content-right.hidden-xs
           .sticky_column
             .anh-che-title
               %h4
@@ -93,7 +119,7 @@
                 = anh_che.id
             .fb-share-button{"data-href" => post_url(anh_che), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
               %a.fb-xfbml-parse-ignore{:href => post_url(anh_che)+"&src=sdkpreparse", :target => "_blank"} Share  
-      .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"}
+      .clear-fix{style: "border-bottom: 1px solid #ddd;"}
   - if @posts.size > 9    
     .infinite-scrolling
       %button.btn.btn-info{:type => "button"} xem thêm, còn nhiều lắm

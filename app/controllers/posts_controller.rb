@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def hot
-    
+    @posts = Post.publish.paginate(page: params[:page], per_page: 10).order('publish  DESC')
   end
   
   def the_end

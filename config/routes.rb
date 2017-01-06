@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get "update_like"
       get "the_end"
       get "update_comment"
+      get "hot"
     end
   end
   resources :users do

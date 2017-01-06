@@ -9,7 +9,33 @@
     , sự ủng hộ của bạn là động lực của chúng tôi.
   - @posts.limit(10).each do |post|
     .row.main-content
-      .col-sm-7.content-left
+      .col-sm-7.content-left.col-xs-12
+        .col-xs-info.visible-xs
+          %h4.title
+            %a{:href => post_path(post)} 
+              = post.title
+          .status    
+            %span.view
+              %i.fa.fa-eye{"aria-hidden" => "true"}
+              = post.view
+            %span.comment
+              %i.fa.fa-comments{"aria-hidden" => "true"}
+              =  post.comment
+          .fb-like-button
+            .before-click
+              %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
+              %span.text Like
+              %span.number 
+                = post.like
+            .after-click 
+              %i.fa.fa-check{"aria-hidden" => "true"}
+              %span.text Like
+              %span.number 
+                = post.like + 1
+            .post-id{style: "display:none;"} 
+              = post.id
+          .fb-share-button{"data-href" => post_url(post), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
+            %a.fb-xfbml-parse-ignore{:href => post_url(post)+"&src=sdkpreparse", :target => "_blank"} Share     
         - if post.anh_che?
           %a.picture{:href => post_path(post)}
             - if post.avatar.present? && post.source == "vuivonvuivon"
@@ -23,7 +49,7 @@
             .panel.panel-default
               .panel-body  
                 = sanitize post.content
-      .col-sm-5.content-right
+      .col-sm-5.content-right.hidden-xs
         .sticky_column
           .anh-che-title
             %h4
@@ -59,7 +85,7 @@
           .fb-share-button{"data-href" => post_url(post), "data-layout" => "button", "data-mobile-iframe" => "true", "data-size" => "small"}
             %a.fb-xfbml-parse-ignore{:href => post_url(post)+"&src=sdkpreparse", :target => "_blank"} Share
  
-    .clear-fix{style: "border-bottom: 1px solid #ddd; margin-bottom: 20px;"} 
+    .clear-fix{style: "border-bottom: 1px solid #ddd;"} 
   - if @posts.size > 9    
     .infinite-scrolling
       %button.btn.btn-info{:type => "button"} xem thêm, còn nhiều lắm

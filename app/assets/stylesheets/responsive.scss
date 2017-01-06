@@ -1,0 +1,178 @@
+/************ layout_frontend *****************/
+@media screen and (max-width: 750px) {
+  #myModal-dang-anh img
+  {
+    width: 200px;
+  }
+}
+/************ END layout_frontend *************/
+
+/************* posts_anh_che ***************/
+#frontend-anh-che .content-left .col-xs-info
+{
+  margin-bottom:10px;
+}
+#frontend-anh-che .content-left .col-xs-info .title a 
+{
+  color: #333;
+  font-weight:bold;
+}
+#frontend-anh-che .content-left .col-xs-info .status 
+{
+  float:left;
+}
+#frontend-anh-che .content-left .col-xs-info .status span
+{
+  margin-right:10px;
+}
+@media screen and (max-width: 750px) {
+  #frontend-anh-che .clear-fix 
+  {
+    margin-bottom: 0px;
+  }
+}
+/************* END posts_anh_che ***************/
+
+/*************  posts_truyen_cuoi ***************/
+
+#frontend-truyen-cuoi .content-left .col-xs-info
+{
+  margin-bottom:10px;
+}
+#frontend-truyen-cuoi .content-left .col-xs-info .title a 
+{
+  color: #333;
+  font-weight:bold;
+}
+#frontend-truyen-cuoi .content-left .col-xs-info .status 
+{
+  float:left;
+}
+#frontend-truyen-cuoi .content-left .col-xs-info .status span
+{
+  margin-right:10px;
+}
+@media screen and (max-width: 750px) {
+  #frontend-truyen-cuoi .clear-fix 
+  {
+    margin-bottom: 0px;
+  }
+}
+
+/*************  END posts_truyen_cuoi ***************/
+
+/************* posts_show ***************/
+#post-show .content-left .title
+{
+  margin-bottom:2px;
+}
+#post-show .content-left .title a 
+{
+  color: #333;
+  font-weight:bold;
+}
+#post-show .content-left .upload-at
+{
+  font-size:10px;
+  margin-bottom:5px;
+}
+#post-show .content-left .status
+{
+  float:left;
+  margin-right:10px;
+}
+@media screen and (max-width: 750px) {
+  #post-show .post-detail .content-left 
+  {
+    margin-bottom: -90px;
+  }    
+  #post-show .post-content .post-image img 
+  {
+    width:100%;
+    max-width: 650px;
+  }
+}
+/************* END posts_show ***************/
+
+/************** category_show ***************/
+#category-show  .content-left .col-xs-info
+{
+  margin-bottom:10px;
+}
+#category-show  .content-left .col-xs-info .title a 
+{
+  color: #333;
+  font-weight:bold;
+}
+#category-show  .content-left .col-xs-info .status 
+{
+  float:left;
+}
+#category-show  .content-left .col-xs-info .status span
+{
+  margin-right:10px;
+}
+@media screen and (max-width: 750px) {
+  #category-show  .clear-fix 
+  {
+    margin-bottom: 0px;
+  }
+}
+
+/************** END category_show ***************/
+
+/************** user_show ***************/
+
+#user-show .user-images  .content-left .col-xs-info
+{
+  margin-bottom:10px;
+}
+#user-show .user-images  .content-left .col-xs-info .title a 
+{
+  color: #333;
+  font-weight:bold;
+}
+#user-show .user-images  .content-left .col-xs-info .status 
+{
+  float:left;
+}
+#user-show .user-images .content-left .col-xs-info .status span
+{
+  margin-right:10px;
+}
+@media screen and (max-width: 750px) {
+  #user-show .user-images .clear-fix 
+  {
+    margin-bottom: 0px;
+  }
+}
+
+/************** END user_show ***************/
+
+/************** user_truyen ***************/
+#user-truyen .user-jokes  .content-left .col-xs-info
+{
+  margin-bottom:10px;
+}
+#user-truyen .user-jokes  .content-left .col-xs-info .title a 
+{
+  color: #333;
+  font-weight:bold;
+}
+#user-truyen .user-jokes  .content-left .col-xs-info .status 
+{
+  float:left;
+}
+#user-truyen .user-jokes .content-left .col-xs-info .status span
+{
+  margin-right:10px;
+}
+@media screen and (max-width: 750px) {
+  #user-truyen .user-jokes .clear-fix 
+  {
+    margin-bottom: 0px;
+  }
+}
+
+/************** END user_truyen ***************/
+

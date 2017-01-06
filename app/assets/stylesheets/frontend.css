@@ -15,5 +15,6 @@
  *= require posts
  *= require users
  *= require categories
+ *= require responsive
  *= require_self
  */

@@ -106,10 +106,10 @@
                   = image_tag("/assets/login-facebook.png")  
     #content.container-fluid.text-center{style: "min-height: 900px"}
       .row.content
-        .col-sm-1.sidenav.content-left
+        .col-sm-1.sidenav.content-left.hidden-xs
         .col-sm-7.text-left.main-content
           = yield
-        .col-sm-3.sidenav.sidebar
+        .col-sm-3.sidenav.sidebar.hidden-xs
           .btn-dang-anh
             %button.btn.btn-primary{:type => "button",:href => "#myModal-dang-anh", "data-toggle" => "modal"}  Click để bắt đầu chia sẻ những bức ảnh vui!
           #topUser
@@ -145,7 +145,7 @@
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                = f.like_total
+                                = f.like_week
                       .clear-fix
                       .moreTop
                         %a{:href => top_user_week_users_path} xem thêm »
@@ -163,7 +163,7 @@
                                 = f.name.truncate(10)
                               %span
                                 %i.fa.fa-thumbs-up{"aria-hidden" => "true"}
-                                = f.like_total
+                                = f.like_month
                       .clear-fix
                       .moreTop
                         %a{:href => top_user_month_users_path} xem thêm »
@@ -191,7 +191,7 @@
               .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "false", "data-href" => "https://www.facebook.com/Vui-V%E1%BB%93n-1283615565042606", "data-show-facepile" => "true", "data-small-header" => "false"}
                 %blockquote.fb-xfbml-parse-ignore{:cite => "https://www.facebook.com/Vui-V%E1%BB%93n-1283615565042606"}
                   %a{:href => "https://www.facebook.com/Vui-V%E1%BB%93n-1283615565042606"} Vui Vồn
-        .col-sm-1.sidenav.content-right     
+        .col-sm-1.sidenav.content-right.hidden-xs    
     %footer.container-fluid.text-center
       %p Chúc bạn: 12 tháng phú quý, 365 ngày phát tài, 8760 giờ sung túc, 525600 phút thành công 31536000 giây vạn sự như ý.
     #myModal-dang-anh.modal.fade{:role => "dialog"}
