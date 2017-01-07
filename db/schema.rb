@@ -84,18 +84,19 @@ ActiveRecord::Schema.define(version: 20161226140728) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
-    t.integer  "view",        default: 0
-    t.integer  "like",        default: 0
-    t.integer  "comment",     default: 0
+    t.integer  "view",          default: 0
+    t.integer  "like",          default: 0
+    t.integer  "comment",       default: 0
+    t.integer  "crontab_count", default: 0
     t.string   "source"
     t.integer  "post_type"
-    t.integer  "status",      default: 2
+    t.integer  "status",        default: 2
     t.string   "slug"
-    t.datetime "publish",     default: '2016-12-29 16:46:58'
+    t.datetime "publish",       default: '2017-01-07 12:28:59'
     t.integer  "user_id"
     t.integer  "category_id"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"

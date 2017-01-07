@@ -10,7 +10,11 @@ body
   line-height:1.38;
   font-size:14px;
 }
-
+.navbar.navbar-inverse .navbar-brand .logo
+{
+  height:200%;
+  margin-top:-10px;
+}
 .tips
 {
   background: #ffee8a none repeat scroll 0 0;

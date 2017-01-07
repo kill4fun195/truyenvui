@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :view, default: 0
       t.integer :like, default: 0
       t.integer :comment, default: 0
+      t.integer :crontab_count, default: 0
       t.string :source
       t.integer :post_type
       t.integer :status, default: 2

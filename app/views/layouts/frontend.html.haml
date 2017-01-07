@@ -55,7 +55,8 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Logo
+          %a.navbar-brand{:href => root_path} 
+            = image_tag("/assets/logo.png", class: "logo")
         #myNavbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
