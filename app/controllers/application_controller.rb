@@ -5,6 +5,44 @@ class ApplicationController < ActionController::Base
 
   before_action :initial_sidebar
 
+   before_action :prepare_meta_tags, if: "request.get?"
+
+  def prepare_meta_tags(options={})
+    site_name   = "vuivon.com"
+    title       = "Cộng đồng chế ảnh troll, truyen cuoi, hài hước, haivl"
+    description = "Anh che haivl.com - Ảnh troll, chế ảnh vui hài hước meme, range comic haivl tại vuivon.com . Chia sẻ Video clip giải trí hay hot gây sốt giới trẻ . Tham gia NGAY để cười xả stress"
+    image       = options[:image] || "your-default-image-url"
+    current_url = request.url
+
+    # Let's prepare a nice set of defaults
+    defaults = {
+      site:        site_name,
+      title:       title,
+      image:       image,
+      description: "Anh che haivl.com - Ảnh troll, chế ảnh vui hài hước meme, range comic haivl tại vuivon.com . Chia sẻ Video clip giải trí hay hot gây sốt giới trẻ .",
+      keywords:    "Truyen cuoi , truyện cười, anh che, anh vui hai huoc , ảnh vui , ảnh chế , chế ảnh , ảnh troll, haivl, haivl.com",
+      twitter: {
+        site_name: site_name,
+        site: 'vuivon.com',
+        card: 'summary',
+        description: description,
+        image: image
+      },
+      og: {
+        url: current_url,
+        site_name: site_name,
+        title: title,
+        image: image,
+        description: description,
+        type: 'website'
+      }
+    }
+
+    options.reverse_merge!(defaults)
+
+    set_meta_tags options
+  end
+
   private
 
 

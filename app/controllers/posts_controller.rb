@@ -39,6 +39,28 @@ class PostsController < ApplicationController
     @post.update(view: @post.view + 1)
     @user = @post.user
     @like_total = @user.like_total
+
+    if @post.source == "vuivonvuivon" && @post.anh_che?
+      prepare_meta_tags(title:  @post.title + " | Ảnh hài" ,
+                        description: @post.user.name + " - Ảnh chế " +@post.user.name + " . Cộng đồng ảnh chế troll, truyện cười. Tham gia NGAY VUIVON.COM",
+                        keywords: @post.user.name + ", ảnh chế troll, truyện cười, vuivon.com",
+                        image: @post.avatar.image.url(:medium),
+                        twitter: {card: @post.avatar.image.url})
+    end
+    if @post.source != "vuivonvuivon" && @post.anh_che?
+      prepare_meta_tags(title: @post.title + " | Ảnh hài | vuivon.com",
+                        description: @post.user.name + " - Ảnh chế " +@post.user.name + " . Cộng đồng ảnh chế troll, truyện cười. Tham gia NGAY VUIVON.COM",
+                        keywords: @post.user.name + ", ảnh chế troll, truyện cười, vuivon.com",
+                        image: @post.avatar.image.url(:origin),
+                        twitter: {card: @post.avatar.image.url})
+    end
+    if @post.truyen_cuoi?
+      prepare_meta_tags(title: @post.title + " | truyện cười",
+                        description: @post.user.name + " - Ảnh chế " +@post.user.name + " . Cộng đồng ảnh chế troll, truyện cười. Tham gia NGAY VUIVON.COM",
+                        keywords: @post.user.name + ", ảnh chế troll, truyện cười, vuivon.com",
+                        image: "/assets/truyencuoi-logo.jpg",
+                        twitter: {card: "/assets/truyencuoi-logo.jpg"})
+    end
   end
 
   def update_like

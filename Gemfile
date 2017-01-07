@@ -61,3 +61,4 @@ gem 'paperclip-watermark'
 gem 'cancan'
 gem 'activeadmin', github: 'activeadmin'
 gem 'whenever', :require => false
+gem 'meta-tags'
